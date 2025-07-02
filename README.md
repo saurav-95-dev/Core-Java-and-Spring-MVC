@@ -1,5 +1,3 @@
-July 
-
 Project : 
 
 Technologies : 
