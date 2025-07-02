@@ -1,7 +1,15 @@
+My Socials : 
+
 Project : 
+
 
 Technologies : 
 
-link : 
 
 Architecture Deisgn : 
+
+
+link : 
+
+
+
