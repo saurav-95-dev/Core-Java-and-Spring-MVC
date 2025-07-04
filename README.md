@@ -1,6 +1,19 @@
-Backend development P+ --> Spring MVC , sevlets , JDBC ODBC, Core Java , hibernate
+My Socials : 
 
-Phase -1 : June 27 --> Focus --> Core Java 
+Project : 
 
-Topics -> Basics , JUnit , DSA (Only Selected once) 
+
+Technologies : 
+
+Description : 
+
+
+Architecture Deisgn : 
+
+
+link : 
+
+Contact : 
+
+
 
