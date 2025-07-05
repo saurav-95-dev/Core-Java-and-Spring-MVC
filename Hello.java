@@ -5,7 +5,7 @@ public class Hello {
     public static void main(String[] args) {
     
         //Multi-dimensional array :
-        //Asigining value via Math.random : 
+        //Asigining value via Math.random with enhanced for loop : 
         
         int arr[][] = new int[3][4];
 
@@ -21,7 +21,17 @@ public class Hello {
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
-            
+
+        }
+        
+        System.out.println();
+        System.out.println();
+
+        for( int n[] : arr) { 
+            for (int m : n) {
+                System.out.print(m + " ");
+            }
+            System.out.println();
         }
      
      
