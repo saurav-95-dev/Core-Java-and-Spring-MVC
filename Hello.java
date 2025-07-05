@@ -1,40 +1,25 @@
 //Arrays in java : 
-
-
 public class Hello {
     public static void main(String[] args) {
-    
-        //Multi-dimensional array :
-        //Asigining value via Math.random with enhanced for loop : 
-        
-        int arr[][] = new int[3][4];
+        //Concept of jagged arrays : 
+        int arr[][] = new int[3][];
+        arr[0] = new int[3];
+        arr[1] = new int[4];
+        arr[2] = new int[2];
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                arr[i][j] = (int)(Math.random() * 10);
+        //assigning values to the arrays : 
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (int)(Math.random() * 100);
             }
         }
 
-        for (int i = 0; i < 3; i++) {
-
-            for (int j = 0; j < 4; j++) {
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-
-        }
-        
-        System.out.println();
-        System.out.println();
-
-        for( int n[] : arr) { 
+        for(int n[] : arr){
             for (int m : n) {
                 System.out.print(m + " ");
             }
             System.out.println();
         }
-     
-     
  }
 
 }
