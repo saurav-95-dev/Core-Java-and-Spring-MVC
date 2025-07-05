@@ -1,25 +1,41 @@
 //Arrays in java : 
+class Students {
+
+    String name;
+    int marks;
+    int rollNo;
+
+}
+
 public class Hello {
+     
+    //Creating arrays of object type and using enhanced for loop in the arrays of objects : 
     public static void main(String[] args) {
-        //Concept of jagged arrays : 
-        int arr[][] = new int[3][];
-        arr[0] = new int[3];
-        arr[1] = new int[4];
-        arr[2] = new int[2];
+       
+         Students s1 = new Students();
+         Students s2 = new Students();
+         Students s3 = new Students();
 
-        //assigning values to the arrays : 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = (int)(Math.random() * 100);
-            }
-        }
+         s1.name = "Saurabh";
+         s1.marks = 80;
+         s1.rollNo = 2;
 
-        for(int n[] : arr){
-            for (int m : n) {
-                System.out.print(m + " ");
-            }
-            System.out.println();
-        }
- }
+         s2.name = "Vaibhav";
+         s2.marks = 30;
+         s2.rollNo = 23;
+
+         s3.name = "Vinayak";
+         s3.marks = 2;
+         s3.rollNo = 12;
+
+         Students students[] = new Students[3];
+         students[0] = s1;
+         students[1] = s2;
+         students[2] = s3;
+
+
+        
+
+   }
 
 }
