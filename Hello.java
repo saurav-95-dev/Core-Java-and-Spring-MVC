@@ -1,46 +1,48 @@
-//Arrays in java : 
-class Students {
+//Arrray of object : 
 
-    String name;
+class Student {
     int marks;
     int rollNo;
-
+    String name;
 }
 
-public class Hello {
-     
-    //Creating arrays of object type and using enhanced for loop in the arrays of objects : 
+class Hello {
     public static void main(String[] args) {
-
-        Students s1 = new Students();
-        Students s2 = new Students();
-        Students s3 = new Students();
+        Student s1 = new Student();
+        Student s2 = new Student();
+        Student s3 = new Student();
 
         s1.name = "Saurabh";
-        s1.marks = 80;
+        s1.marks = 12;
         s1.rollNo = 2;
 
         s2.name = "Vaibhav";
-        s2.marks = 30;
-        s2.rollNo = 23;
+        s2.marks = 112;
+        s2.rollNo = 12;
 
         s3.name = "Vinayak";
-        s3.marks = 2;
-        s3.rollNo = 12;
+        s3.marks = 23;
+        s3.rollNo = 3;
 
-        Students students[] = new Students[3];
-        students[0] = s1;
-        students[1] = s2;
-        students[2] = s3;
+        //Creating an array which has all these objects : 
+        Student student[] = new Student[3];
+        student[0] = s1;
+        student[1] = s2;
+        student[2] = s3;
 
-        //  for (int i = 0; i < students.length; i++) {
-        //     System.out.println(students[i].name + " : " + students[i].marks + " : " + students[i].rollNo);
-        //  }
-        
-        for (Students s : students) {
-             System.out.println(s.name + " : " + s.marks + " : " + s.rollNo);
+
+        //Normal for loop:
+        for (int i = 0; i < student.length; i++) {
+            System.out.println(student[i].marks + " :" + student[i].name + " :" + student[i].rollNo);
         }
- 
-    }
+        System.out.println();
+        System.out.println();
 
+        for(Student stud : student){
+            System.out.println(stud.name + "-->" + stud.marks + " : " + stud.rollNo);
+        }
+
+
+    }
+    
 }
