@@ -1,10 +1,10 @@
 ### My Socials : 
 
-## Instagram : 
+### Instagram : 
 
-## Twitter : 
+### Twitter : 
 
-## Youtube : 
+### Youtube : 
 
 
 Project : 
