@@ -1,15 +1,20 @@
-My Socials : 
-Instagram : 
-Twitter : 
+## My Socials : 
+
+## Instagram : 
+
+## Twitter : 
+
+## Youtube : 
 
 
 Project : 
 
-
 Technologies : 
 
-Description : 
+Exception handling , Multithreading . Collection , Advanced Concepts
 
+
+Description : 
 
 Architecture Deisgn : 
 
