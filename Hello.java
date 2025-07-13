@@ -1,26 +1,28 @@
-//Implement method overiding in java :
+//Concept of package :
+//Public , Private , Protected . 
 
-class A {
-    public void show() {
-        System.out.println("Inside class A show ");
-    }
-}
+import Devices.AdvancedCalculator;
+import Devices.Calculator;
 
-class B extends A {
-    public void show1() {
-        System.out.println("Inside  class B show");
+class Sub extends AdvancedCalculator {
+    
+    public void test() {
+       
+        System.out.println(this.result);
     }
+    
 }
 
 class Hello {
     public static void main(String[] args) {
 
-        System.out.println("Method overiding");
-         B obj1 = new B();
-         obj1.show();
-
+        System.out.println("Concpet of package and access modifiers");
+        Calculator obj1 = new Calculator();
+        int r1 = obj1.add(2, 4);
+        System.out.println(r1);
+        
+        
+        System.out.println(obj1.result1);
 
     }
-
-   
 }
