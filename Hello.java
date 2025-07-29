@@ -5,6 +5,7 @@
 class Saurabh {
 
     int num1;
+    static int number;
 
     public void saurabhShow() {
         System.out.println("This is outer class");
@@ -21,12 +22,15 @@ class Saurabh {
     
 }
 
-class Hello {
+public class Hello {
     public static void main(String[] args) {
         System.out.println("This is main method");
 
         Saurabh obj = new Saurabh();
         obj.saurabhShow();
+
+        Saurabh.Dev obj1 = obj.new Dev();
+        obj1.devShow();
 
     }
 }
