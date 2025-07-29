@@ -1,29 +1,4 @@
-//CONCEPT OF INNER CLASS : 
+// Inner class.
+// An Inner class can only access static members and methods of the outer class directly.
+// How we can we access non-static members and method of outer class inside inner class.
 
-
-class A {
-    int num;
-
-    void show() {
-        System.out.println("Inside Show");
-    } //Accessible within the same class.
-
-    class B {
-        int num2;
-
-        void config() {
-            System.out.println("Inside config");
-        }
-    }
-}
-
-class Hello {
-    public static void main(String[] args) {
-        System.out.println("Inside Hello Method");
-        A obj = new A();
-        obj.show();
-
-        A.B obj1 = obj.new B();
-        obj1.config();
-    }
-}
