@@ -7,7 +7,3 @@
 Technologies :
 
 
-Description :
-
-Architecture Deisgn :
-
