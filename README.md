@@ -13,6 +13,3 @@ Description :
 
 Architecture Deisgn :
 
-link :
-
-Contact :
