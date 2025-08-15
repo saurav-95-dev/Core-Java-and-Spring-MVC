@@ -1,24 +1,16 @@
-//Concept Method Overloading:
-
-class Calculator{
-    public int add(int a, int b){
-        return a+b;
-    }
-
-    public int add(int a , int b , int c){
-        return a+b+c;
-    }
-    public double add(double a , int b){
-        return a+b;
-    }
+//Strings:
+public static void main(String[] args) {
+    String s = "Saurabh";
+    s = s + " Dev"; //Here , the original string won't be changed. Instead , a new object will get created at different location in Heap.
+    System.out.println(s);
+    String s1 = "Hello";
+    String s2 = "Hello";
+    //In stack , both s1 and s2 will be pointing at same location in Heap.
+    //s1 and s2 will share the same object in Heap . Np separate object will be created both s1 and s2.
+    //When line 7 get executed , we already have s1 Hello in the Heap inside string pool constant . Hence instead of separately creating a object , s2 will point at same location in Heap where the s1 is pointing.
 }
-public class Hello{
-    public static void main(String[] args) {
-         Calculator calculator = new Calculator();
-         double result = calculator.add(2.5,3);
-         System.out.println(result);
-    }
-}
+
 //Takeaways:
-//Instance variable gets space inside Heap-memory.
-//Reference variable are inside the stack which points to the address of the corresponding object that is created in the Heap.
+//In java , strings are by default immutable.
+//Once we create the object , we cannot change it.
+
