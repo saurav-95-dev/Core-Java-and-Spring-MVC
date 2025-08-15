@@ -1,24 +1,22 @@
-//Concept of classes and objects:
+//Concept Method Overloading:
 
-class Demo{
+class Calculator{
+    public int add(int a, int b){
+        return a+b;
+    }
 
-    int num; //This is instance variable
-
-    public String playMusic(int cost){
-        //Here , cost is a local variable.
-        if(cost >= 10){
-            return "Playing music";
-        }
-        return "Nothing";
+    public int add(int a , int b , int c){
+        return a+b+c;
+    }
+    public double add(double a , int b){
+        return a+b;
     }
 }
 public class Hello{
     public static void main(String[] args) {
-         //Here demo is a reference variable.
-         Demo demo = new Demo();
-         String str = demo.playMusic(5);
-         System.out.println(str);
-
+         Calculator calculator = new Calculator();
+         double result = calculator.add(2.5,3);
+         System.out.println(result);
     }
 }
 //Takeaways:
