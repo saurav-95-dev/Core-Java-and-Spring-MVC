@@ -1,5 +1,4 @@
 //Concept of static keyword:
-
 class Demo{
     //instance variables:
     String name;
@@ -18,8 +17,14 @@ class Demo{
         branch = "Computer science";
         System.out.println("Inside static block");
     }
-    public void show(){
+    public void show1(){
         System.out.println("Name:" + name + " Marks:" + marks + " Grade:" + grade + " Branch:" + branch);
+    }
+    //Creating a static method:
+    public static String show2(){
+        System.out.println("This is static method");
+        branch = "Information Technology is inside static method";
+        return branch;
     }
 }
 
@@ -38,8 +43,10 @@ public class Hello{
         d2.grade = "B";
         //Demo.branch= "CS";
        // d1.branch = "IT";
-        d2.show();
-        d1.show();
+        d2.show1();
+        d1.show1();
+        String str = Demo.show2();
+        System.out.println(str);
 
     }
 }
