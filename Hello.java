@@ -1,4 +1,5 @@
 //Concept of static keyword:
+//Indirect access of non-static variable inside static method.
 class Demo{
     //instance variables:
     String name;
@@ -21,8 +22,10 @@ class Demo{
         System.out.println("Name:" + name + " Marks:" + marks + " Grade:" + grade + " Branch:" + branch);
     }
     //Creating a static method:
-    public static String show2(){
-        System.out.println("This is static method");
+    public static String show2(Demo demo){
+        demo.name = "got it";
+        demo.marks = 23;
+        System.out.println("This is static method " + demo.name);
         branch = "Information Technology is inside static method";
         return branch;
     }
@@ -45,17 +48,9 @@ public class Hello{
        // d1.branch = "IT";
         d2.show1();
         d1.show1();
-        String str = Demo.show2();
+        String str = Demo.show2(d1);
         System.out.println(str);
 
     }
 }
 
-//Takeaways:
-//There is no need to create instance of the static members/methods , we can call them directly from the name of class itself.
-//A non-static method (instance method) can easily access/directly access static variable.
-//Whenever an object is created , the class loads and then the object gets instantiated and the constructor gets called.
-//Everytime the class get loads , the static block gets called first and then through the constructor, object gets instantiated.
-//If we don't create an object , class won't get load and hence no static or constructor block will be called.
-//It is posible to load a class without object creation via using Class class and forName method.
-//This for Name method basically is meant for loading te class.
