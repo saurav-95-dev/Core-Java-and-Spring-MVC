@@ -7,6 +7,17 @@ class Demo{
     String grade;
     static String branch;
 
+    //Constructor:
+    public Demo(){
+        String name = "";
+        int marks= 0;
+        System.out.println("Inside constructor");
+    }
+    //static block:
+    static {
+        branch = "Computer science";
+        System.out.println("Inside static block");
+    }
     public void show(){
         System.out.println("Name:" + name + " Marks:" + marks + " Grade:" + grade + " Branch:" + branch);
     }
@@ -14,16 +25,18 @@ class Demo{
 
 public class Hello{
     public static void main(String[] args){
+        //First object
         Demo d1 = new Demo();
         d1.name = "Saurabh Dev";
         d1.marks = 100;
         d1.grade = "A";
         //d1.branch = "IT";
+        //Second Object
         Demo d2 = new Demo();
         d2.name="Babu Raj Singh";
         d2.marks = 200;
         d2.grade = "B";
-        Demo.branch= "CS";
+        //Demo.branch= "CS";
        // d1.branch = "IT";
         d2.show();
         d1.show();
