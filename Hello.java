@@ -17,8 +17,8 @@ class Computer{
      }
 
      //Setters:
-     public void setModel1Ram(int ram ){
-         this.ram = ram;
+     public void setModel1Ram(int ram , Computer obj){
+         obj.ram = ram;
      }
      public void setModel1Company(String company){
          this.company = company;
@@ -30,9 +30,11 @@ class Hello{
     public static void main(String[] args){
          Computer computer = new Computer();
          computer.showModel1();
-         computer.setModel1Ram(122);
+         computer.setModel1Ram(122 ,  computer);
          computer.setModel1Company("Lenovo");
         System.out.println("Ram:" + computer.getModel1Ram() + "\nCompany:" + computer.getModel1Company());
 
     }
 }
+
+//Note: We can set values in the setters without using this keyword while keeping the same variable name by passing the object itself.
