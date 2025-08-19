@@ -16,15 +16,21 @@ class Student{
         this.branch="Computer science";
     }
 
+    public Student(int marks , String name , int age){
+        this.marks=marks;
+        this.name=name;
+        this.age=age;
+    }
+
 }
 
 public class Hello{
     public static void main(String[] args){
         System.out.println("This is main function");
-        Student student = new Student();
+        Student student = new Student(8 , "Vaibhav" ,24);
         System.out.println("Name:" + student.name);
         System.out.println("Age:" + student.age);
-        System.out.println("Branch:" + student.branch);
+        System.out.println("Branch:" + student.marks);
 
     }
 }
