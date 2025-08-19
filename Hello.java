@@ -1,32 +1,31 @@
-//Default and parameterized Constructors in java:
+//Java Constructor: 19/08/2025
+//Default and parameterized constructor
+//Overloading in constructor with getters/setters involved
+
 class Student{
-   int age;
-   int marks;
-   String name;
-   String branch;
+    int marks;
+    String name;
+    int age;
+    String branch;
 
-   //Default constructor:
+    //Default constructor:
     public Student(){
-        System.out.println("Inside Default Constructor");
-       this.age = 10;
-       this.marks = 80;
-       this.name = "NA";
-       this.branch = "IT";
+        this.marks=0;
+        this.name="NA";
+        this.age=12;
+        this.branch="Computer science";
     }
 
-    public Student(int age , String branch){
-        System.out.println("Inside Parameterized constructor");
-        this.age = age;
-        this.branch = branch;
-    }
 }
 
 public class Hello{
     public static void main(String[] args){
-         Student s1 = new Student();
-         Student s2 = new Student();
-         Student s3 = new Student(22,"CS");
-         System.out.println(s1.age + "\n" + s1.marks + "\n" + s1.name + "\n" + s1.branch);
-         System.out.println(s3.age + "\n" + s3.marks + "\n" + s3.branch);
+        System.out.println("This is main function");
+        Student student = new Student();
+        System.out.println("Name:" + student.name);
+        System.out.println("Age:" + student.age);
+        System.out.println("Branch:" + student.branch);
+
     }
 }
+
