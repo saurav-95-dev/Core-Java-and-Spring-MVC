@@ -2,6 +2,7 @@
 //Default and parameterized constructor
 //Overloading in constructor with getters/setters involved
 
+//Operations performing:
 class Student{
     int marks;
     String name;
