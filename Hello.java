@@ -22,16 +22,7 @@ class Student{
         this.name=name;
         this.age=age;
     }
-    //getters for Marks, Age and Name:
-     public int getMarks(){
 
-     }
-     public String getName(){
-
-     }
-     public int getAge(){
-
-     }
      //Setters for Marks , Age and  Name:
     public void setMarks(int marks){
         this.marks=marks;
