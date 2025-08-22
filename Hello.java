@@ -34,9 +34,7 @@ public class Hello{
         Student student1 = new Student();
         //Calling parameterized constructor:
         Student student2 = new Student(8 , "Vaibhav" ,24);
-        student1.setMarks(23);
-        student1.setAge(25);
-        student1.setName("Saurabh");
+
         System.out.println();
 
 
