@@ -1,28 +1,23 @@
-// 24/08/2025 -- Concept of method overloading and overriding in Java
-//Method-overloading -> same method name , same no. of arguments , diff parameters types.
-//Method-overriding -> Inheritance involved , same method name , same no./type of parameter but different method behaviour inside child class.
-//**Method-overriding happens when a function inside child class wants to override the same function defined in the parent class.
+// 24/08/2025 -- Concept of packages in Java
+//Notes:
+//Every java file will have java.lang.* package imported by default.
 
-class Calculator{
 
-    public int add(int a , int b){
-        return a+b;
-    }
-    public int sub(int a , int b){
-        return a-b;
-    }
-    public int mul(int a , int b){
-        return (a*b);
-    }
-
-}
+import Tools.*;
+import DB.Student;
 
 public class Hello {
 
     public static void main(String[] args){
-         AdvCalculator calc = new AdvCalculator();
+         ScientificCalculator calc = new ScientificCalculator();
          int result = calc.mul(3,4);
          System.out.println(result);
+         double p = calc.power(2,3);
+         System.out.println(p);
+         Student s = new Student();
+         String str = s.nameInformation("Saurabh Dev");
+        System.out.println(str);
+
     }
 
 }
