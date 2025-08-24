@@ -1,45 +1,39 @@
-// 24/08/2025 -- Concept of this and super methods in Java
+// 24/08/2025 -- Concept of inheritance in Java
+//Note : Multiple Inheritance is not supported in java.
 
-class A{
-    public A(){
-        super();
-        System.out.println("Default constructor of A class");
+class Calculator{
+
+    public int add(int a , int b){
+        return a+b;
     }
-    public A(int m){
-        super();
-        System.out.println("Parameterized constructor of A class");
+    public int sub(int a , int b){
+        return a-b;
     }
+
 }
 
-class B extends A{
+class AdvCalculator extends Calculator{
+    public int mul(int a , int b){
+        return a*b;
+    }
+    public int div(int a , int b){
+        return a/b;
+    }
 
-    public B(){
-        super();
-        System.out.println("Default constructor of B class");
-    }
-    public B(int n){
-        this();
-        System.out.println("Parameterized constructor of B class");
-    }
 }
 
-class Hello{
-    public static void main(String[] args) {
-        B b = new B(3);
+public class Hello{
+
+    public static void main(String[] args){
+        Calculator obj1 = new Calculator();
+        System.out.println(obj1.add(1,2));
+        AdvCalculator obj2 = new AdvCalculator();
+        System.out.println(obj2.add(8,2));
+
+
     }
+
 }
 
-
-
-
-
-
-
-
-//Takeaways:
-//Every constructor in java has a method named super.
-//Every class in java , extends super class.
-//this() method executes the constructor of the same class.
-//super method executes the constructor of the super class .
 
 
