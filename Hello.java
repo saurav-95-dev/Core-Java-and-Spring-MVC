@@ -1,4 +1,4 @@
-// 24/08/2025 -- Constructors in Java
+// 24/08/2025 -- Parameterized Constructors in Java
 class Student{
     //instance varible:
     int marks;
@@ -8,8 +8,14 @@ class Student{
 
     //Constructor:
     public Student(){
+        System.out.println("Inside default constructor");
         this.age = 22;
         this.branch ="IT";
+    }
+    public Student(int marks, String name){
+        System.out.println("Inside parameterized constructor");
+        this.marks = marks;
+        this.name= name;
     }
 
     //setters:
@@ -42,7 +48,14 @@ class Hello{
     public static void main(){
 
         Student student = new Student();
-        student.setMarks(10);
+        Student student1 = new Student(29 , "Aviral");
+        int marks1 = student1.getMarks();
+        String name1 = student1.getName();
+        System.out.println("Parameterized Marks:" + marks1);
+        System.out.println("Parameterized Name:" + name1);
+        System.out.println("Parameterized Age:" + student1.getAge());
+        System.out.println("Parameterized Branch:" + student1.getBranch());
+        student.setMarks(30);
         student.setName("SAURABH DEV");
         int marks = student.getMarks();;
         String name = student.getName();
