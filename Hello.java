@@ -1,44 +1,55 @@
-//Java Constructor: 19/08/2025
-//Default and parameterized constructor
-//Overloading in constructor with getters/setters involved
-
-//Operations performing:
+// 24/08/2025 -- Constructors in Java
 class Student{
-    private int marks;
-    private String name;
-    private int age;
-    private String branch;
+    //instance varible:
+    int marks;
+    String name;
+    int age;
+    String branch;
 
-    //Default constructor:
+    //Constructor:
     public Student(){
-        this.marks=0;
-        this.name="NA";
-        this.age=12;
-        this.branch="Computer science";
+        this.age = 22;
+        this.branch ="IT";
     }
 
-    public Student(int marks , String name , int age){
-        this.marks=marks;
-        this.name=name;
-        this.age=age;
+    //setters:
+    public void setMarks(int marks){
+        this.marks = marks;
     }
-
-
+    public  void setName(String name){
+        this.name = name;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+    //getters:
+    public int getMarks(){
+        return marks;
+    }
+    public String getName(){
+        return name;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getBranch(){
+        return branch;
+    }
 
 }
 
-public class Hello{
-    public static void main(String[] args){
-        System.out.println("This is main function");
-        //Calling default constructor:
-        Student student1 = new Student();
-        //Calling parameterized constructor:
-        Student student2 = new Student(8 , "Vaibhav" ,24);
+class Hello{
+    public static void main(){
 
-        System.out.println();
-
-
+        Student student = new Student();
+        student.setMarks(10);
+        student.setName("SAURABH DEV");
+        int marks = student.getMarks();;
+        String name = student.getName();
+        System.out.println("Marks:" + marks);
+        System.out.println("Name:" + name);
+        System.out.println("Age:" + student.getAge());
+        System.out.println("Branch:" + student.getBranch());
 
     }
 }
-
