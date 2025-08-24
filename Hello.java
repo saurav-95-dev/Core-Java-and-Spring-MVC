@@ -1,68 +1,45 @@
-// 24/08/2025 -- Parameterized Constructors in Java
-class Student{
-    //instance varible:
-    int marks;
-    String name;
-    int age;
-    String branch;
+// 24/08/2025 -- Concept of this and super methods in Java
 
-    //Constructor:
-    public Student(){
-        System.out.println("Inside default constructor");
-        this.age = 22;
-        this.branch ="IT";
+class A{
+    public A(){
+        super();
+        System.out.println("Default constructor of A class");
     }
-    public Student(int marks, String name){
-        System.out.println("Inside parameterized constructor");
-        this.marks = marks;
-        this.name= name;
+    public A(int m){
+        super();
+        System.out.println("Parameterized constructor of A class");
     }
+}
 
-    //setters:
-    public void setMarks(int marks){
-        this.marks = marks;
-    }
-    public  void setName(String name){
-        this.name = name;
-    }
-    public void setAge(int age){
-        this.age = age;
-    }
-    //getters:
-    public int getMarks(){
-        return marks;
-    }
-    public String getName(){
-        return name;
-    }
-    public int getAge(){
-        return age;
-    }
-    public String getBranch(){
-        return branch;
-    }
+class B extends A{
 
+    public B(){
+        super();
+        System.out.println("Default constructor of B class");
+    }
+    public B(int n){
+        super(n);
+        System.out.println("Parameterized constructor of B class");
+    }
 }
 
 class Hello{
-    public static void main(){
-
-        Student student = new Student();
-        Student student1 = new Student(29 , "Aviral");
-        int marks1 = student1.getMarks();
-        String name1 = student1.getName();
-        System.out.println("Parameterized Marks:" + marks1);
-        System.out.println("Parameterized Name:" + name1);
-        System.out.println("Parameterized Age:" + student1.getAge());
-        System.out.println("Parameterized Branch:" + student1.getBranch());
-        student.setMarks(30);
-        student.setName("SAURABH DEV");
-        int marks = student.getMarks();;
-        String name = student.getName();
-        System.out.println("Marks:" + marks);
-        System.out.println("Name:" + name);
-        System.out.println("Age:" + student.getAge());
-        System.out.println("Branch:" + student.getBranch());
-
+    public static void main(String[] args) {
+        B b = new B(3);
     }
 }
+
+
+
+
+
+
+
+
+//Takeaways:
+//Every constructor in java has a method named super.
+//Every class in java , extends super class.
+//this() method executes the constructor of the same class.
+//super method executes the constructor of the super class .
+
+
