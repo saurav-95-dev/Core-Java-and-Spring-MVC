@@ -18,7 +18,7 @@ class B extends A{
         System.out.println("Default constructor of B class");
     }
     public B(int n){
-        super(n);
+        this();
         System.out.println("Parameterized constructor of B class");
     }
 }
