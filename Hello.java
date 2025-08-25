@@ -11,13 +11,14 @@ import DB.Student;
 class Individual extends Student {
     public void printSomething(){
         //This city variable is accessible in diff package (Hello File) but subclass.
-        System.out.println("Protected City:" + city);
+        System.out.println("Protected variable City:" + city);
     }
 }
 
 class Demo extends Calculator{
     public void printSomethingNew(){
-        System.out.println("Protected value:" + value);
+        //This protected value variable is accessible in diff package (Hello file) but only in Demo subclass.
+        System.out.println("Protected variable value:" + value);
     }
 }
 public class Hello {
