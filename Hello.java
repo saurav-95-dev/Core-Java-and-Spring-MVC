@@ -36,5 +36,8 @@ public class Hello {
         AdvCalculator adv = new AdvCalculator();
         int advResult = adv.mul(4,4); // calls AdvCalculator's mul()
         System.out.println(advResult);
+        Demo demo = new Demo();
+        demo.printSomethingNew();
+
     }
 }
