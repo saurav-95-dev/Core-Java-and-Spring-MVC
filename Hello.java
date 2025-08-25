@@ -10,7 +10,7 @@ import DB.Student;
 
 class Individual extends Student {
     public void printSomething(){
-
+        //This city variable is accessible in diff package (Hello File) but subclass.
         System.out.println("Protected City:" + city);
     }
 }
@@ -38,6 +38,8 @@ public class Hello {
         System.out.println(advResult);
         Demo demo = new Demo();
         demo.printSomethingNew();
+        Individual i = new Individual();
+        i.printSomething();
 
     }
 }
