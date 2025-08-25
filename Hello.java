@@ -11,7 +11,13 @@ import DB.Student;
 class Individual extends Student {
     public void printSomething(){
 
-        System.out.println(city);
+        System.out.println("Protected City:" + city);
+    }
+}
+
+class Demo extends Calculator{
+    public void printSomethingNew(){
+        System.out.println("Protected value:" + value);
     }
 }
 public class Hello {
@@ -27,10 +33,6 @@ public class Hello {
         String str = s.nameInformation("Saurabh Dev");
         System.out.println(str);
         System.out.println(s.branch);
-
-        Individual i = new Individual();
-        i.printSomething();
-
         AdvCalculator adv = new AdvCalculator();
         int advResult = adv.mul(4,4); // calls AdvCalculator's mul()
         System.out.println(advResult);

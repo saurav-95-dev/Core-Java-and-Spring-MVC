@@ -1,8 +1,8 @@
 package Tools;
 
 public class AdvCalculator extends Calculator {
-    //Child method of child class.
 
+    //Child method of child class.
     public int mul(int a , int b){
         System.out.println("VALUE IS:" + value);
         return (a*b)+4;
