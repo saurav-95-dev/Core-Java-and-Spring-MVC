@@ -15,23 +15,24 @@ class Individual extends Student {
     }
 }
 public class Hello {
+    public static void main(String[] args) {
+        ScientificCalculator calc = new ScientificCalculator();
+        int result = calc.mul(3,4); // calls overridden mul() from AdvCalculator
+        System.out.println(result);
 
-    public static void main(String[] args){
-         ScientificCalculator calc = new ScientificCalculator();
-         int result = calc.mul(3,4);
-         System.out.println(result);
-         double p = calc.power(2,3);
-         System.out.println(p);
-         Student s = new Student();
-         String str = s.nameInformation("Saurabh Dev");
-         System.out.println(str);
-         System.out.println(s.branch);
-         Individual i = new Individual();
-         i.printSomething();
-         AdvCalculator adv = new AdvCalculator();
-         int advResult = adv.mul(4,4);
+        double p = calc.power(2,3);
+        System.out.println(p);
+
+        Student s = new Student();
+        String str = s.nameInformation("Saurabh Dev");
+        System.out.println(str);
+        System.out.println(s.branch);
+
+        Individual i = new Individual();
+        i.printSomething();
+
+        AdvCalculator adv = new AdvCalculator();
+        int advResult = adv.mul(4,4); // calls AdvCalculator's mul()
         System.out.println(advResult);
-
     }
-
 }
