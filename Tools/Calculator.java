@@ -12,5 +12,8 @@ public class Calculator{
     public int mul(int a , int b){
         return (a*b);
     }
+    protected void myGreatName(){
+        System.out.println("This is protected method of Calculator class inside DB package");
+    }
 
 }

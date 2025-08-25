@@ -19,7 +19,9 @@ class Demo extends Calculator{
     public void printSomethingNew(){
         //This protected value variable is accessible in diff package (Hello file) but only in Demo subclass.
         System.out.println("Protected variable value:" + value);
+        myGreatName();
     }
+
 }
 public class Hello {
     public static void main(String[] args) {
