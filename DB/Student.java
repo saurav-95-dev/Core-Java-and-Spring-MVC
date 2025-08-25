@@ -5,6 +5,7 @@ import Tools.Calculator;
 
 class NewDemo extends Calculator{
     public void printSomethingGreat(){
+        //Trying to access protected variable value of diff package of DB(Calculator class)
         System.out.println("Protected variable inside Student.java of DB package:" + value);
     }
 }
