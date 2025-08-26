@@ -1,7 +1,7 @@
 package Tools;
 
 public class Calculator{
-    protected int value = 1000000;
+    //protected int value = 1000000;
     public int add(int a , int b){
 
         return a+b;
