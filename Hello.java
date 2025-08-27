@@ -3,22 +3,19 @@
 //For class , final is used to prevent inheritance i.e , no-one can extend it .
 //In case of method , final is used to prevent method overriding.
 
-final class Computer{
+class Computer{
     final int num = 12;
-
-
-    public void func1(){
+    public final void func1(){
         System.out.println("Inside Computer class");
         System.out.println(num);
     }
 }
 
 class Laptop extends Computer{
-    public void func2(){
+    public void func1(){
         System.out.println("Inside Laptop class");
     }
 }
-
 
 public class Hello {
     public static void main(String[] args) {
