@@ -1,28 +1,24 @@
-//Upcasting and Downcasting .
-//Upcasting is automatic , Downcasting is explicit .
+//Wrapper classes Glimpse
+//For every primitive class , we have a class in java which extends the object class.
 
-class Computer{
-    int marks;
-    String name;
-    public void func1(){
-        System.out.println("Inside Computer class");
-    }
-}
-
-class Laptop extends Computer{
-    public void func2(){
-        System.out.println("Inside Lenovo class");
-    }
-}
 
 public class Hello{
     public static void main(String [] args){
-//        Even though at runtime, c1 is pointing to a Laptop object, the compiler
-//        doesn’t allow calling func2() with c1 because the declared reference type (Computer) doesn’t know about it.
-          Computer c1 = new Laptop();
-          Laptop l = (Laptop)c1; // DownCasting
-//By down-casting we are telling java , "Hey, trust me, this Computer reference actually points to a Laptop object."
-          l.func2();
+        //Conversion from primitive to object type.
+        int n = 4;
+        Integer m = new Integer(n); //Boxing
+        System.out.println(m);
+        int a = 12;
+        Integer b = a; //Auto-boxing
+        System.out.println(b);
+        //Conversion from object to primitiv type.
+        int z = b;
+        System.out.println("Z value:" + z); //Auto-unboxing
+
+        //Others benefits:
+        String number  = "12";
+        int num = Integer.parseInt(number);
+        System.out.println(num*3);
 
     }
 }
