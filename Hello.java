@@ -1,24 +1,31 @@
-//Wrapper classes Glimpse
-//For every primitive class , we have a class in java which extends the object class.
+//Abstract Keyword in Java:
+//NOTES:
+//abstract method can only belong to an abstract class.
+//It is not possible to create the object of an abstract class but it is ok to create a reference of it.
+//It is necessary to have an abstract class for an abstract method but reverse os not true.
+//It is not necessary to have an abstract method inside an abstract class.
+//It is necessary to implement the abstract methods inside the child class which is also called concrete class.
 
+abstract class Car{
+
+    public abstract void drive();
+    public void playMusic(){
+        System.out.println("I'm playing music");
+    }
+
+}
+
+class Iten extends Car{
+    public void drive(){
+        System.out.println("I'm driving");
+    }
+
+}
 
 public class Hello{
     public static void main(String [] args){
-        //Conversion from primitive to object type.
-        int n = 4;
-        Integer m = new Integer(n); //Boxing
-        System.out.println(m);
-        int a = 12;
-        Integer b = a; //Auto-boxing (When we try to store a primitive type to Wrapper class variable)
-        System.out.println(b);
-        //Conversion from object to primitiv type.
-        int z = b;
-        System.out.println("Z value:" + z); //Auto-unboxing (When we try to fetch/store a wrapper class variable value inside a primitive type)
-
-        //Others benefits:
-        String number  = "12";
-        int num = Integer.parseInt(number);
-        System.out.println(num*3);
-
+       Car car = new Iten();
+       car.drive();
+       car.playMusic();
     }
 }
