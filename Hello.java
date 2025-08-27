@@ -1,12 +1,10 @@
-//Anonymous inner class
+//Anonymous inner class.
+//NOTES:
+//We can use anonymous inner class for the abstract class as well.
 
-class Computer{
-    public void func1(){
-        System.out.println("Inside Computer class..");
-    }
+abstract class Computer{
+    public abstract void func1();
 }
-
-
 
 class Hello{
     public static void main(String[] args) {
@@ -21,3 +19,11 @@ class Hello{
 
     }
 }
+
+//IMPORTANT:
+
+//👉 Here’s what’s happening:
+//        new Computer() { ... };
+//This does NOT mean we are directly creating an object of Computer.
+//Instead, we are creating an anonymous class (a class without a name) that extends Computer and provides an implementation for its abstract method func1().
+//Java immediately creates an object of that anonymous subclass and assigns it to the reference c.
