@@ -6,7 +6,7 @@ class Computer{
     public void func1(){
         System.out.println("Inside Computer class..");
     }
-    class Laptop{
+    static class Laptop{
         public void func2(){
             System.out.println("Inside inner class Laptop..");
         }
@@ -19,7 +19,7 @@ class Hello{
     public static void main(String[] args) {
          //For Creating an object of inner class , we need the object of outer class first.
          Computer c = new Computer();
-         Computer.Laptop c1 = c.new Laptop();
+         Computer.Laptop c1 = new Computer.Laptop();
          c1.func2();
 
     }
