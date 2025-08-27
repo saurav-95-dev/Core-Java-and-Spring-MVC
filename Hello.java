@@ -23,9 +23,13 @@ class Lenovo extends Laptop{
 
 public class Hello{
     public static void main(String [] args){
-         Computer c = new Laptop();
-         Laptop l = new Lenovo();
+//        Here, although we've created the reference of Computer class but after creating the Laptop object
+//        it starts pointing to the new Laptop object location . Hence, method inside Laptop overrides method inside Computer class during run-time.
+         Computer c = new Computer();
          c.func1();
+         c = new Laptop();
+         c.func1();
+         Laptop l = new Lenovo();
          l.func1();
     }
 }
