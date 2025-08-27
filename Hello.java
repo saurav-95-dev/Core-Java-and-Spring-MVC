@@ -1,35 +1,23 @@
-//Concept of Polymorphism in Java -- 27/08/2025.
-//NOTE : Irrespective of the reference that we create , which method will get called during run time will depend on which object we are creating for runtime polymorphism.
-//This is only possible through inheritance.
-//This behaviour of run-time polymorphism is called "dynamic method dispatch" .
+//Concept of Final Keyword. --> Can be used with variable , method , class.
+//For variable , final is used to make it constant.
+//For class , final is used to prevent inheritance i.e , no-one can extend it .
+//In case of method , final is used to prevent method overriding.
 
 class Computer{
-    public void func1() {
-        System.out.println("Inside Computer class !");
-    }
-}
+    final int num = 12;
 
-class Laptop extends Computer{
+
     public void func1(){
-        System.out.println("Inside Laptop class !");
+        System.out.println("Inside Computer class");
+        num = 11;
+        System.out.println(num);
     }
 }
 
-class Lenovo extends Laptop{
-    public void func1(){
-        System.out.println("Inside Lenovo class !");
-    }
-}
 
-public class Hello{
-    public static void main(String [] args){
-//        Here, although we've created the reference of Computer class but after creating the Laptop object
-//        it starts pointing to the new Laptop object location . Hence, method inside Laptop overrides method inside Computer class during run-time.
-         Computer c = new Computer();
-         c.func1();
-         c = new Laptop();
-         c.func1();
-         Laptop l = new Lenovo();
-         l.func1();
+public class Hello {
+    public static void main(String[] args) {
+       Computer c = new Computer();
+       c.func1();
     }
 }
