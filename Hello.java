@@ -9,11 +9,11 @@ public class Hello{
         Integer m = new Integer(n); //Boxing
         System.out.println(m);
         int a = 12;
-        Integer b = a; //Auto-boxing
+        Integer b = a; //Auto-boxing (When we try to store a primitive type to Wrapper class variable)
         System.out.println(b);
         //Conversion from object to primitiv type.
         int z = b;
-        System.out.println("Z value:" + z); //Auto-unboxing
+        System.out.println("Z value:" + z); //Auto-unboxing (When we try to fetch/store a wrapper class variable value inside a primitive type)
 
         //Others benefits:
         String number  = "12";
