@@ -1,6 +1,3 @@
-//Anonymous inner class.
-//NOTES:
-//We can use anonymous inner class for the abstract class as well.
 
 abstract class Computer{
     public abstract void func1();
