@@ -1,7 +1,5 @@
 
-abstract class Computer{
-    public abstract void func1();
-}
+
 
 class Hello{
     public static void main(String[] args) {
