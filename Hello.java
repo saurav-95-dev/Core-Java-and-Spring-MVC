@@ -10,6 +10,8 @@
 //It becomes necessary to implement the methods that are declared inside interface in the  class which is  extending it otherwise that class will become abstract class by-default.
 
 interface Machine{
+    int marks = 12;   //Final and static by default
+    String name = "Saurabh";   //Final and static by default
     void show();
     void config();
 }
@@ -30,6 +32,8 @@ class Hello {
        Machine machine = new Laptop();
        machine.config();
        machine.show();
+        System.out.println(Machine.marks);
+        System.out.println(machine.name);
     }
 
 }
