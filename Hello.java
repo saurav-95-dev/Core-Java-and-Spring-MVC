@@ -16,6 +16,7 @@ interface Machine{
     String name = "Saurabh";   //Final and static by default
     void show();
     void config();
+    //void run();
 }
 
 interface Human extends Machine{
@@ -50,10 +51,12 @@ class Hello {
        machine.show();
 
        Human human = new Laptop();
-       human.run();
+       machine.run();  //Here reference type Machine doesn't know about run method as it is not declares inside it .
+       //Here machine points to Laptop object in heap which does has the run() definition . But the compile time rule says - "You can only call methods that the reference type knows about."
+        human.run();
 
         System.out.println(Machine.marks);
-        System.out.println(machine.name);
+        System.out.println(Machine.name);
     }
 
 }
