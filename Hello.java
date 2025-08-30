@@ -9,6 +9,7 @@
 // because , we create the object of class and not the interface.
 //It becomes necessary to implement the methods that are declared inside interface in the  class which is  extending it otherwise that class will become abstract class by-default.
 //In abstract class we can extend only 1 class , but we can have a class implementing multiple interfaces.
+// Class - class --> extends , class - interface --> implements , interface-interface -> extends again.
 
 interface Machine{
     int marks = 12;   //Final and static by default
@@ -17,7 +18,7 @@ interface Machine{
     void config();
 }
 
-interface Human{
+interface Human extends Machine{
     void run();
 }
 
@@ -25,7 +26,7 @@ interface Man extends Human{
     void hasMuscles();
 }
 
-class Laptop implements Machine , Man{
+class Laptop implements Machine , Human {
      public void show(){
          System.out.println("Inside show method");
      }
@@ -47,6 +48,9 @@ class Hello {
        Machine machine = new Laptop();
        machine.config();
        machine.show();
+
+       Human human = new Laptop();
+       human.run();
 
         System.out.println(Machine.marks);
         System.out.println(machine.name);
