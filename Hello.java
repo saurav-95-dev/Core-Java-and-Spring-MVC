@@ -1,37 +1,48 @@
 
+interface Computer{
 
-class Desktop{
+    void buildApplication();
+}
+
+class Desktop implements Computer{
     public void useDesktop(){
         System.out.println("Inside desktop method of Desktop class");
     }
     public void writeCodeDesktop(){
         System.out.println("Writing code using desktop");
     }
+    public void buildApplication(){
+        System.out.println("Building application using desktop");
+    }
 }
 
-class Laptop{
+class Laptop implements Computer{
     public void useLaptop(Desktop desktop){
         desktop.useDesktop();
     }
     public void writeCodeLaptop(){
         System.out.println("Writing code using laptop");
     }
+    public void buildApplication(){
+        System.out.println("Building application using laptop");
+    }
 }
 
 class Developer{
-    //Tight coupling as we are limit to receiving only Laptop object here.
-    public void buildApplication(Laptop laptop){
+    //Loose coupling as we are receiving the reference of Computer class interface which is getting implemented by both Laptop and Desktop class.
+    public void buildApplication(Computer c){
         System.out.println("Software engineering");
-        laptop.writeCodeLaptop();
+        c.buildApplication();
     }
 }
 
 class Hello{
     public static void main(){
-        Desktop desktop = new Desktop();
-        Laptop laptop = new Laptop();
+
         Developer developer = new Developer();
-        //Tight coupling:
-        developer.buildApplication(dektop);
+        //Loose coupling:
+        Computer desktop = new Desktop();
+        Computer laptop = new Laptop();
+        developer.buildApplication(laptop);
     }
 }
