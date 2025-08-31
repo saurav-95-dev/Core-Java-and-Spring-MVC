@@ -6,12 +6,18 @@
 
 enum Laptop{
     //Whatever the values we are passing here , will get assigned in private int price variable.
-    mackbook(2000), hp(3000) , thinkpad(300) , lenovo(800);
+    mackbook(2000), hp , thinkpad(300) , lenovo(800);
     private int price;
 
     //Parameterized constructor:
     private Laptop(int price){
         this.price = price;
+        System.out.println("This is parameterized constructor");
+    }
+
+    private Laptop(){
+        this.price = 200000;
+        System.out.println("This is default constructor");
     }
 
     public int getPrice(){
