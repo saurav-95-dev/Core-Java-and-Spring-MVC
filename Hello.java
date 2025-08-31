@@ -16,6 +16,11 @@ public class Hello {
          Status arr[] = Status.values();
         System.out.println(arr[0]);
         System.out.println(arr[1]);
+        //Printing all values via enhanced for loop:
+        System.out.println("Printing all values:");
+        for(Status i : arr){
+            System.out.println(i + " : " + i.ordinal() );
+        }
     }
 
 }
