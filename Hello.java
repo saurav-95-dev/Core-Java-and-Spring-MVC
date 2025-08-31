@@ -4,15 +4,31 @@
 //Although Enum is a class , u cant extends enum in any other class. But we can define methods , constructor , variables.
 //By default , enum in java extends enum class . and all the extra methods we get from enum class.
 
-enum Status{
-    running , waiting , failed , successful;
+enum Laptop{
+    //Whatever the values we are passing here , will get assigned in private int price variable.
+    mackbook(2000), hp(3000) , thinkpad(300) , lenovo(800);
+    private int price;
+
+    //Parameterized constructor:
+    private Laptop(int price){
+        this.price = price;
+    }
+
+    public int getPrice(){
+        return price;
+    }
+    public void setPrice(int price){
+        this.price = price;
+    }
+
 }
 
 class Hello{
 
     public static void main(String[] args) {
-        Status s  = Status.running;
-        System.out.println(s.getClass().getSuperclass());
+        Laptop l = Laptop.thinkpad;
+        System.out.println(l);
+        System.out.println(l + " : " + l.getPrice());
     }
 
 }
