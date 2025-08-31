@@ -1,25 +1,26 @@
 //Enums and annotations:
 //Enums are a kind of class in java , and all the named constant inside it can be called as the objects.
+//Enums with if-else and switch:
 
 enum Status{
-    running , waiting , failed , successful;
+    running , waiting , failed , successful; // Named constants (can be called as objects)
 }
 
 public class Hello {
 
     public static void main(String[] args){
-
-        Status s = Status.running;
-        //For different named constants we have a number.
-        System.out.println(s.ordinal());
-        //For getting more than one status at a time , we use values method with Status class (Enum).
-         Status arr[] = Status.values();
-        System.out.println(arr[0]);
-        System.out.println(arr[1]);
-        //Printing all values via enhanced for loop:
-        System.out.println("Printing all values:");
-        for(Status i : arr){
-            System.out.println(i + " : " + i.ordinal() );
+        Status status = Status.waiting;
+        if(status == Status.running){
+            System.out.println("System is running...");
+        }
+        else if(status == Status.waiting){
+            System.out.println("In waiting mode ..");
+        }
+        else if(status == Status.failed){
+            System.out.println("Transaction failed..");
+        }
+        else{
+            System.out.println("Transaction successful");
         }
     }
 
