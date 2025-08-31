@@ -1,31 +1,18 @@
 //Enums and annotations:
 //Enums are a kind of class in java , and all the named constant inside it can be called as the objects.
 //Switch is supported in enum.
-
-//Enums with if-else and switch:
+//Although Enum is a class , u cant extends enum in any other class. But we can define methods , constructor , variables.
+//By default , enum in java extends enum class . and all the extra methods we get from enum class.
 
 enum Status{
-    running , waiting , failed , successful; // Named constants (can be called as objects)
+    running , waiting , failed , successful;
 }
 
-public class Hello {
+class Hello{
 
-    public static void main(String[] args){
-        Status status = Status.successful;
-        switch(status){
-            case running:
-                System.out.println("Running mode..");
-                break;
-            case waiting:
-                System.out.println("in waiting mode ...");
-                break;
-            case failed:
-                System.out.println("In failed mode..");
-                break;
-            default:
-                System.out.println("Transaction sucess..!");
-
-        }
+    public static void main(String[] args) {
+        Status s  = Status.running;
+        System.out.println(s.getClass().getSuperclass());
     }
 
 }
