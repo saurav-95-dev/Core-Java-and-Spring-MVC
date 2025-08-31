@@ -29,6 +29,12 @@ class Hello{
         Laptop l = Laptop.thinkpad;
         System.out.println(l);
         System.out.println(l + " : " + l.getPrice());
+        //printing all the laptop:
+        System.out.println("Printing for all laptops:");
+        Laptop arr[] = Laptop.values();
+        for(Laptop i : arr){
+            System.out.println(i + " : " + i.getPrice());
+        }
     }
 
 }
