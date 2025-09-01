@@ -19,12 +19,7 @@ enum Laptop{
         System.out.println("This is default constructor");
     }
 
-    public int getPrice(){
-        return price;
-    }
-    public void setPrice(int price){
-        this.price = price;
-    }
+
 
 }
 
@@ -33,7 +28,7 @@ class Hello{
     public static void main(String[] args) {
         Laptop l = Laptop.thinkpad;
         System.out.println(l);
-        System.out.println(l + " : " + l.getPrice());
+
         //printing all the laptop:
         System.out.println("Printing for all laptops:");
         Laptop arr[] = Laptop.values();
