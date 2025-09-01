@@ -3,7 +3,6 @@
 //Switch is supported in enum.
 //Although Enum is a class , u cant extends enum in any other class. But we can define methods , constructor , variables.
 //By default , enum in java extends enum class . and all the extra methods we get from enum class.
-
 enum Laptop{
     //Whatever the values we are passing here , will get assigned in private int price variable.
     mackbook(2000), hp , thinkpad(300) , lenovo(800);
