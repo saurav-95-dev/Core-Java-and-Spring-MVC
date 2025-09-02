@@ -5,3 +5,5 @@
 
 ## Topics - CORE-JAVA (SPRING MVC) :
 
+
+->Enum , Annotations and lamda expression.
