@@ -19,8 +19,6 @@ enum Laptop{
         System.out.println("This is default constructor");
     }
 
-
-
 }
 
 class Hello{
@@ -36,5 +34,27 @@ class Hello{
             System.out.println(i + " : " + i.getPrice());
         }
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
