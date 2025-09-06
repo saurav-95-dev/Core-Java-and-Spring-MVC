@@ -1,59 +1,37 @@
-//Interface revisit :
-//NOTES:
-//In the abstract class , we can have abstract as well as normal methods.
-//If we have a class with only abstract methods inside it , we can use interface.
-//Every method inside interface , are by default public abstract.
-//When a class implements an interface , it becomes compulsory to define all the methods declared inside the interface .
-//If we don't define the methods inside the class which implements interface , then that class becomes abstract class by default.
-//Variable inside an interface are by-default final and static.
-//Compile time rule - You can only call methods about which reference type is aware of.
+//Need for the interface:
+//For loose coupling.
 
-interface A{
-    void playMusic();
-    void goToGym();
-    int marks = 22;
-    String name = "Saurabh Dev";
+class Computer{
+    public void code(){
+
+    }
+
 }
 
-interface X{
-    void run();
+class Laptop extends Computer{
+
+    public void code() {
+        System.out.println("Coding , debugging , deployment inside laptop");
+    }
 }
 
-interface Y extends X{
-   void skip();
+class Desktop extends Computer{
+    public void code(){
+        System.out.println("Coding , debugging , deployment inside desktop");
+    }
 }
 
-class B implements A , Y{
-
-    public void playMusic(){
-        System.out.println("Playing music inside class B");
+class Developer{
+    public void codeAppliation(Computer l){
+        l.code();
     }
-    public void goToGym(){
-        System.out.println("Inside gym");
-    }
-    public void skip(){
-        System.out.println("Skipping inside class B");
-    }
-    public void run(){
-        System.out.println("Running inside class B");
-    }
-
 }
 
 class Hello{
     static void main(String[] args) {
-        System.out.println("Inside main function:");
-        A a = new B();
-        a.goToGym();
-        a.playMusic();
-        String name = A.name;
-        int  m = A.marks;
-        System.out.println("Marks :" + m + ", Name:" + name);
-        Y y = new B();
-        y.run();
-        y.skip();
-
-
+        Developer developer = new Developer();
+        Computer l = new Laptop();
+        Computer d = new Desktop();
+        developer.codeAppliation(l);
     }
-
 }
