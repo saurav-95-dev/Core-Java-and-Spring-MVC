@@ -14,13 +14,29 @@ interface A{
     String name = "Saurabh Dev";
 }
 
-class B implements A{
+interface X{
+    void run();
+}
+
+interface Y extends X{
+   void skip();
+}
+
+
+
+class B implements A , Y{
 
     public void playMusic(){
         System.out.println("Playing music inside class B");
     }
     public void goToGym(){
         System.out.println("Inside gym");
+    }
+    public void skip(){
+        System.out.println("Skipping inside class B");
+    }
+    public void run(){
+        System.out.println("Running inside class B");
     }
 
 }
