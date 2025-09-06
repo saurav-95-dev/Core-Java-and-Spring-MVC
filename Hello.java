@@ -5,10 +5,13 @@
 //Every method inside interface , are by default public abstract.
 //When a class implements an interface , it becomes compulsory to define all the methods declared inside the interface .
 //If we don't define the methods inside the class which implements interface , then that class becomes abstract class by default.
+//Variable inside an interface are by-default final and static.
 
 interface A{
     void playMusic();
     void goToGym();
+    int marks = 22;
+    String name = "Saurabh Dev";
 }
 
 class B implements A{
@@ -28,6 +31,10 @@ class Hello{
         A a = new B();
         a.goToGym();
         a.playMusic();
+        String name = A.name;
+        int  m = A.marks;
+        System.out.println("Marks :" + m + ", Name:" + name);
+
     }
 
 }
