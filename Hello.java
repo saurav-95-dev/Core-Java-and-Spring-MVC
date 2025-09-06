@@ -1,10 +1,8 @@
 //Need for the interface:
 //For loose coupling.
 
-class Computer{
-    public void code(){
-
-    }
+abstract class Computer{
+    public abstract void code();
 
 }
 
@@ -32,6 +30,6 @@ class Hello{
         Developer developer = new Developer();
         Computer l = new Laptop();
         Computer d = new Desktop();
-        developer.codeAppliation(l);
+        developer.codeAppliation(d);
     }
 }
