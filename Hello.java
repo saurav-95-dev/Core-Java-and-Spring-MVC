@@ -6,6 +6,7 @@
 //When a class implements an interface , it becomes compulsory to define all the methods declared inside the interface .
 //If we don't define the methods inside the class which implements interface , then that class becomes abstract class by default.
 //Variable inside an interface are by-default final and static.
+//Compile time rule - You can only call methods about which reference type is aware of.
 
 interface A{
     void playMusic();
@@ -21,8 +22,6 @@ interface X{
 interface Y extends X{
    void skip();
 }
-
-
 
 class B implements A , Y{
 
@@ -50,6 +49,10 @@ class Hello{
         String name = A.name;
         int  m = A.marks;
         System.out.println("Marks :" + m + ", Name:" + name);
+        Y y = new B();
+        y.run();
+        y.skip();
+
 
     }
 
