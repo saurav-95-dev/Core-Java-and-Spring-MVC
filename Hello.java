@@ -1,19 +1,19 @@
 //Need for the interface:
 //For loose coupling.
 
-abstract class Computer{
-    public abstract void code();
+interface Computer{
+    void code();
 
 }
 
-class Laptop extends Computer{
+class Laptop implements Computer{
 
     public void code() {
         System.out.println("Coding , debugging , deployment inside laptop");
     }
 }
 
-class Desktop extends Computer{
+class Desktop implements Computer{
     public void code(){
         System.out.println("Coding , debugging , deployment inside desktop");
     }
