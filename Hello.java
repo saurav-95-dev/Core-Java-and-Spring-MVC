@@ -1,55 +1,33 @@
-enum Laptop{
-    //Whatever the values we are passing here , will get assigned in private int price variable.
-    mackbook(2000), hp , thinkpad(300) , lenovo(800);
-    private int price;
+//Interface revisit :
+//NOTES:
+//In the abstract class , we can have abstract as well as normal methods.
+//If we have a class with only abstract methods inside it , we can use interface.
+//Every method inside interface , are by default public abstract.
+//When a class implements an interface , it becomes compulsory to define all the methods declared inside the interface .
+//If we don't define the methods inside the class which implements interface , then that class becomes abstract class by default.
 
-    //Parameterized constructor:
-    private Laptop(int price){
-        this.price = price;
-        System.out.println("This is parameterized constructor");
+interface A{
+    void playMusic();
+    void goToGym();
+}
+
+class B implements A{
+
+    public void playMusic(){
+        System.out.println("Playing music inside class B");
     }
-
-    private Laptop(){
-        this.price = 200000;
-        System.out.println("This is default constructor");
+    public void goToGym(){
+        System.out.println("Inside gym");
     }
 
 }
 
 class Hello{
-
-    public static void main(String[] args) {
-        Laptop l = Laptop.thinkpad;
-        System.out.println(l);
-
-        //printing all the laptop:
-        System.out.println("Printing for all laptops:");
-        Laptop arr[] = Laptop.values();
-        for(Laptop i : arr){
-            System.out.println(i + " : " + i.getPrice());
-        }
+    static void main(String[] args) {
+        System.out.println("Inside main function:");
+        A a = new B();
+        a.goToGym();
+        a.playMusic();
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
