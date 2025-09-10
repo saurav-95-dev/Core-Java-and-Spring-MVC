@@ -5,3 +5,7 @@
 
 ## Topics - CORE-JAVA (SPRING MVC) :
 
+Date : September 10 , 2025 : 
+-> Topic : Abstraction and abstract keyword.
+-> Topic : Interfaces 
+
