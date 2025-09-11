@@ -9,9 +9,13 @@
 //4-> Primitive types values can be changes directly , whereas instances of wrapper classes are generally immutable, meaning their value cannot be changed after creation. A new object is created for modifications.
 
 
+
 class Hello{
     public static void main(String[] args){
+        int num = 12;
+        Integer len = num;   //Autoboxing
         System.out.println("Inside main function");
+        System.out.println(len);
 
     }
 }
