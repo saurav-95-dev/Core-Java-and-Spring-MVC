@@ -12,10 +12,15 @@
 
 class Hello{
     public static void main(String[] args){
-        int num = 12;
-        Integer len = num;   //Autoboxing
+        int num1 = 12;
+        Integer len1 = num1;   //Autoboxing
+
+        Integer len2 = 14;
+        int n = len2;
+        System.out.println("Autoboxing : "+len1);
+        System.out.println("Autounboxing :" + n);
         System.out.println("Inside main function");
-        System.out.println(len);
+
 
     }
 }
