@@ -8,21 +8,13 @@
 //3-> Primitive types are generally more efficient where wrapper class are not due to object overhead.
 //4-> Primitive types values can be changes directly , whereas instances of wrapper classes are generally immutable, meaning their value cannot be changed after creation. A new object is created for modifications.
 
-
-
 class Hello{
+
     public static void main(String[] args){
-        int num1 = 12;
-        Integer len1 = num1;   //Autoboxing
-
-        Integer len2 = 14;
-        int n = len2;
-        System.out.println("Autoboxing : "+len1);
-        System.out.println("Autounboxing :" + n);
         System.out.println("Inside main function");
-
-
+        //Primitive types are not objects and hence lack OOPS features.
+        String str = "12";
+        int n = Integer.parseInt(str);
+        System.out.println(n*2);
     }
 }
-
-
