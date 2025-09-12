@@ -1,20 +1,32 @@
-//11/09/2025
-//Wrapper class :
+//12/09/2025 : Abstraction and abstract keyword in java:
 //NOTES:
-//For every primitive type we have class for it and that class extends the object class.
-//Difference b/w primitive type and wrapper class :
-//1-> Primitive types are not objects and hence lack OOPS features like methods and fields.
-//2-> Primitive types cannot be assigned null values . They need to have some default values whereas wrapper class being objects , can hold null values.
-//3-> Primitive types are generally more efficient where wrapper class are not due to object overhead.
-//4-> Primitive types values can be changes directly , whereas instances of wrapper classes are generally immutable, meaning their value cannot be changed after creation. A new object is created for modifications.
+//Compile time rule - You can only call methods about which reference type is aware of.
+
+
+abstract class Employee{
+
+    public void coder(){
+        System.out.println("This is a coder method inside Employee class");
+    }
+    public abstract void analyst();
+    public abstract void manager();
+}
+
+class Helper extends Employee{  //Concrete class
+    public void analyst(){
+        System.out.println("This is the implementation of analyst method");
+    }
+    public void manager() {
+        System.out.println("This is the implementation of manager");
+    }
+}
 
 class Hello{
+    public static void main(String [] arg){
+        Employee e = new Helper();
+        e.coder();
+        e.analyst();
+        e.manager();
 
-    public static void main(String[] args){
-        System.out.println("Inside main function");
-        //Primitive types are not objects and hence lack OOPS features.
-        String str = "12";
-        Integer m = Integer.getInteger(str); //Won't be converting str to integer , instead it will return null for which to store we are using wrapper class.
-        System.out.println(m);
     }
 }
