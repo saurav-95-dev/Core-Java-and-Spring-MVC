@@ -14,7 +14,7 @@ class Hello{
         System.out.println("Inside main function");
         //Primitive types are not objects and hence lack OOPS features.
         String str = "12";
-        int n = Integer.parseInt(str);
-        System.out.println(n*2);
+        Integer m = Integer.getInteger(str); //Won't be converting str to integer , instead it will return null for which to store we are using wrapper class.
+        System.out.println(m);
     }
 }
