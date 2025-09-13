@@ -1,29 +1,20 @@
-//Anonymous Inner class :
-//->used when we want to change the implementation/behaviour of a method defined in some class
+//Abstraction  + Anonymous inner class.
+//->How can we create object of inner class which seems like creating the object of abstract class ?
+//->If there's only one-time implementation of the abstract method or interface of the abstract class, we can do it inside anonymous inner class.
 
-class A{
-
-    public void aShow(){
-        System.out.println("This is a method inside class A");
-    }
-
+abstract class A{
+    public abstract void aShow();
 }
 
-class Hello{
-
-    public static void main() {
-
+public class Hello{
+    public static void main(String[] args) {
         System.out.println("Inside main function");
         A a = new A()
         {
-            //Designing anonymous inner class:
             public void aShow(){
-                System.out.println("Changed the implementation do aShow method");
+                System.out.println("aShow has been implemented");
             }
-
         };
         a.aShow();
-
-
     }
 }
