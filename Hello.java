@@ -1,48 +1,40 @@
+//Inner class :
+//NOTES:
+//-->A class inside a class.
+//-->You cannot make outer class static , only inner class can be made static.
+//-->To create the object of non-static inner class , you need to create the object of outer class first .
+//-->If the inner class is static , we can dont need to object of outer class , we can call the inner class directly from outer class name.
 
+class A{
 
-abstract class Employee{
-
-    public abstract void coder();
-
-    public void receptionist(){
-        System.out.println("Receptionist method inside Employee class-non-abstract");
+    public void aShow(){
+        System.out.println("Method inside class A");
     }
 
-    public void manager(){
-        System.out.println("manager method inside Employee class-non-abstract");
+    class B{
+        public void bShow(){
+            System.out.println("Method inside inner class B");
+        }
     }
-    public abstract void dataAnalyst();
+    static class C{
+        public void cShow(){
+            System.out.println("Method inside inner class C");
+        }
+    }
+
 }
+class Hello{
+    public static void main(String [] args){
 
-class Engineer extends Employee{
-    public void dataAnalyst(){
-        System.out.println("This is the implementation of dataAnalyst inside Engineer");
-    }
-    public void coder(){
-        System.out.println("This is the implementation of coder inside Engineer");
-    }
-    public void businessAnalyst(){
-        System.out.println("This is business analyst inside Engineer class which is not implementing any abstract class");
-    }
-}
+        //To call bShow we need to create the object of B, but first we need to create the object of A first.
+        A o1 = new A(); //Created the object of A.
+        o1.aShow();
+        A.B o2 = o1.new B(); //Using the object of A , we care creating object o2 of B.
+        o2.bShow();
+        //For calling cShow():
+        A.C o3 = new A.C();
+        o3.cShow();
 
-public class Hello{
-    public  static void main(String [] args){
         System.out.println("Inside main function");
-        //Compile time rule -> You can only call methods which reference type knows about.
-        Employee e = new Engineer();
-        e.manager();
-        e.dataAnalyst();
-        e.coder();
-        System.out.println();
-        System.out.println("Printing from Engineer reference");
-        Engineer e1 = new Engineer();
-        e1.businessAnalyst();
-        e1.coder();
-        e1.manager();
-        e1.receptionist();
-        e1.dataAnalyst();
-
-
     }
 }
