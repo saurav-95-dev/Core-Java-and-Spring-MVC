@@ -1,55 +1,31 @@
-//More on interfaces:
-//NOTE:
-//class A will have access to every method of the interfaces which it is implementing along-with its own methods
-
-interface X{
-    void code();
-    void manage();
-
-}
-interface Y{
-    void testing();
-}
-interface Z extends Y{
-    void analytics();
-}
-
-class A implements X , Z{
-    public void code(){
-        System.out.println("Implemented code");
-    }
-    public void manage(){
-        System.out.println("Implemented manage");
-    }
-    public void testing(){
-        System.out.println("Implemented testing..");
-    }
-    public void analytics(){
-        System.out.println("Implemented analytics");
-    }
-    //Separate method inside class A:
-    public void exp(){
-        System.out.println("Separate method inside class A");
+//Need for the interface :
+//This is an example of tight coupling:
+class Laptop{
+    public void laptop(){
+        System.out.println("Developing application using laptop");
     }
 }
 
-class Hello{
+class Desktop{
+    public void desktop(){
+        System.out.println("Developing application using desktop");
+    }
+}
+
+class Developer{
+    //developApplication method is dependent on device specific object
+    public void developApplication(Desktop d){
+        System.out.println("Inside developApplication method..");
+        d.desktop();
+    }
+}
+
+public class Hello{
     public static void main(String[] args) {
         System.out.println("Inside main function");
-        X x = new A();
-        x.manage();
-        x.code();
-        System.out.println();
-        Y y = new A();
-        y.testing();
-        System.out.println();
-        Z z = new A();
-        z.analytics();
-        z.testing();
-        A a = new A();
-        System.out.println();
-        a.exp();
-
-
+        Laptop l = new Laptop();
+        Desktop d = new Desktop();
+        Developer saurabh = new Developer();
+        saurabh.developApplication(d);
     }
 }
