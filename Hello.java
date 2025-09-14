@@ -1,6 +1,7 @@
 //📌 Golden Rule:
 //👉 You can always upcast (child → parent reference).
 //👉 You cannot directly downcast (parent → child reference) unless you explicitly cast and the object really is a child
+//**Compile time rule -> You can call only those methods which reference type is aware of
 
 //Rule: A child reference cannot point to a parent object.
 //Reason: A parent object does not have the extra things the child adds.
