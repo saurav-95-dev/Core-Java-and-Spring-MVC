@@ -23,6 +23,6 @@ public class Hello{
         System.out.println("Inside main function");
         A a = new B();
         a.aShow();
-        
+
     }
 }
