@@ -1,29 +1,55 @@
-//📌 Golden Rule:
-//👉 You can always upcast (child → parent reference).
-//👉 You cannot directly downcast (parent → child reference) unless you explicitly cast and the object really is a child
-//**Compile time rule -> You can call only those methods which reference type is aware of
+//More on interfaces:
+//NOTE:
+//class A will have access to every method of the interfaces which it is implementing along-with its own methods
 
-//Rule: A child reference cannot point to a parent object.
-//Reason: A parent object does not have the extra things the child adds.
-//Example: A doesn’t know about bShow(). If you allowed B b = new A();, then calling b.bShow() would be impossible because the actual object is only A (no such method exists in memory).
+interface X{
+    void code();
+    void manage();
 
-class A{
-    public  void aShow(){
-        System.out.println("In aShow");
+}
+interface Y{
+    void testing();
+}
+interface Z extends Y{
+    void analytics();
+}
+
+class A implements X , Z{
+    public void code(){
+        System.out.println("Implemented code");
+    }
+    public void manage(){
+        System.out.println("Implemented manage");
+    }
+    public void testing(){
+        System.out.println("Implemented testing..");
+    }
+    public void analytics(){
+        System.out.println("Implemented analytics");
+    }
+    //Separate method inside class A:
+    public void exp(){
+        System.out.println("Separate method inside class A");
     }
 }
 
-class B extends A{
-    public void bShow(){
-        System.out.println("In bShow");
-    }
-}
-
-public class Hello{
-    public static void main(String []args){
+class Hello{
+    public static void main(String[] args) {
         System.out.println("Inside main function");
-        A a = new B();
-        a.aShow();
+        X x = new A();
+        x.manage();
+        x.code();
+        System.out.println();
+        Y y = new A();
+        y.testing();
+        System.out.println();
+        Z z = new A();
+        z.analytics();
+        z.testing();
+        A a = new A();
+        System.out.println();
+        a.exp();
+
 
     }
 }
