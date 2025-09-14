@@ -1,17 +1,17 @@
 //Need for the interface :
 //This is an example of tight coupling:
 
-abstract class Computer{
-   public abstract void code();
+interface Computer{
+    void code();
 }
 
-class Laptop extends Computer{
+class Laptop implements Computer{
     public void code(){
         System.out.println("Developing application using laptop");
     }
 }
 
-class Desktop extends  Computer{
+class Desktop implements   Computer{
     public void code(){
         System.out.println("Developing application using desktop");
     }
@@ -31,6 +31,6 @@ public class Hello{
         Computer desktop = new Desktop();
         Computer laptop = new Laptop();
         Developer saurabh = new Developer();
-        saurabh.developApplication(laptop);
+        saurabh.developApplication(desktop);
     }
 }
