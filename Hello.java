@@ -1,36 +1,29 @@
-//Need for the interface :
-//This is an example of tight coupling:
 
-interface Computer{
-    void code();
+abstract class A{
+    public abstract void code();
+    public void manage(){
+        System.out.println("Inside manage method under A class ");
+    }
+    public abstract void testing();
+
 }
 
-class Laptop implements Computer{
+abstract class B extends A{
     public void code(){
-        System.out.println("Developing application using laptop");
+        System.out.println("code method implemented");
     }
 }
-
-class Desktop implements   Computer{
-    public void code(){
-        System.out.println("Developing application using desktop");
+class C extends B{
+    public void testing(){
+        System.out.println("Testing method implemented");
     }
 }
-
-class Developer{
-    //developApplication method is dependent on device specific object
-    public void developApplication(Computer device){
-        System.out.println("Inside developApplication method..");
-        device.code();
-    }
-}
-
 public class Hello{
-    public static void main(String[] args) {
-        System.out.println("Inside main function");
-        Computer desktop = new Desktop();
-        Computer laptop = new Laptop();
-        Developer saurabh = new Developer();
-        saurabh.developApplication(desktop);
+    public static void main(String []args){
+        A a  = new C();
+        a.code();
+        a.manage();
+        a.testing();
+
     }
 }
