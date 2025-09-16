@@ -1,29 +1,29 @@
+//Can we override a static method :
 
-abstract class A{
-    public abstract void code();
+class A{
+    public static void code(){
+        System.out.println("Code inside class A");
+    }
     public void manage(){
-        System.out.println("Inside manage method under A class ");
+        System.out.println("manage inside class A");
     }
-    public abstract void testing();
-
 }
 
-abstract class B extends A{
-    public void code(){
-        System.out.println("code method implemented");
+class B extends A{
+    public static void code(){
+        System.out.println("Code inside B subclass");
+    }
+    public void manage(){
+        System.out.println("manage inside subclass B");
     }
 }
-class C extends B{
-    public void testing(){
-        System.out.println("Testing method implemented");
-    }
-}
-public class Hello{
-    public static void main(String []args){
-        A a  = new C();
-        a.code();
-        a.manage();
-        a.testing();
+
+class Hello{
+    public static void main(String[] args) {
+
+        B b = new B();
+        b.manage(); //Will call manage method under B subclass
+        b.code(); //Will call code method under B subclass (although discouraged to call static method via object).
 
     }
 }
