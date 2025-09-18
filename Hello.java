@@ -12,17 +12,25 @@ enum Status {
 
 class Hello{
     public static void main(String [] args){
-        System.out.println("Inside main function");
-        Status s = Status.failed;
+        Status s = Status.pending;
         System.out.println(s);
-        System.out.println("Ordinal of " + s + " is " + s.ordinal());
         System.out.println();
-        System.out.println("Printing all values : ");
-        //printing all values :
-        Status[] arr = Status.values();
-        for(Status i : arr){
-            System.out.println(i + "->" + i.ordinal() );
+        System.out.println("Usage of switch:");
+        switch (s){
+            case waiting :
+                System.out.println("Waiting");
+                break;
+            case success :
+                System.out.println("Success");
+                break;
+            case error :
+                System.out.println("error");
+                break;
+            case failed :
+                System.out.println("failed");
+                break;
+            default:
+                System.out.println("Pending..");
         }
-
     }
 }
