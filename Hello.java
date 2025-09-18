@@ -5,15 +5,21 @@
 //Although enums are treated as class in java , but you cannot extend enums with any other class.
 //Apart from the above you can have objects , methods , variables as well as constructors.
 //By-default enum in java extends the enum class.
-
+//** Once you write a parameterized constructor, the compiler does not give you a default constructor automatically.
+//But it doesn’t “die” permanently — you can still write your own default constructor explicitly.
 //Demonstration of enums with constructors , getters and setters :
 
 enum Laptop{
-    macbook(12334) , hp(123) , lenovo(464) , acer(4546); //Named objects
+    macbook(12334) , hp(123) , lenovo , acer(4546); //Named objects
 
     private int price;
 
+    private Laptop(){
+        System.out.println("default constructor called");
+        price = 1;
+    }
     private Laptop(int price){
+        System.out.println("Parameterized constructor called for :" + this.name());
         this.price = price;
     }
 
