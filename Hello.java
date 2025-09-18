@@ -25,8 +25,6 @@ enum Laptop{
         return price;
     }
 
-
-
 }
 
 class Hello{
@@ -34,6 +32,13 @@ class Hello{
 
         Laptop l = Laptop.macbook;
         System.out.println("Price of " + l + " is: " +l.getPrice());
+        System.out.println();
+        //Printing all laptop :
+        System.out.println("Printing all laptops:");
+        Laptop[] arr = Laptop.values();
+        for(Laptop i : arr){
+            System.out.println(i + "->" + i.ordinal() + " price -->" + i.getPrice() );
+        }
 
     }
 }
