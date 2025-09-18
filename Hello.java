@@ -6,31 +6,34 @@
 //Apart from the above you can have objects , methods , variables as well as constructors.
 //By-default enum in java extends the enum class.
 
-enum Status {
-    waiting , success , error , failed , pending;
+//Demonstration of enums with constructors , getters and setters :
+
+enum Laptop{
+    macbook(12334) , hp(123) , lenovo(464) , acer(4546); //Named objects
+
+    private int price;
+
+    private Laptop(int price){
+        this.price = price;
+    }
+
+    //getters and setters:
+    public void setPrice(int p){
+        this.price = p;
+    }
+    public int getPrice(){
+        return price;
+    }
+
+
+
 }
 
 class Hello{
-    public static void main(String [] args){
-        Status s = Status.pending;
-        System.out.println(s);
-        System.out.println();
-        System.out.println("Usage of switch:");
-        switch (s){
-            case waiting :
-                System.out.println("Waiting");
-                break;
-            case success :
-                System.out.println("Success");
-                break;
-            case error :
-                System.out.println("error");
-                break;
-            case failed :
-                System.out.println("failed");
-                break;
-            default:
-                System.out.println("Pending..");
-        }
+    public static void main(String[] args){
+
+        Laptop l = Laptop.macbook;
+        System.out.println("Price of " + l + " is: " +l.getPrice());
+
     }
 }
