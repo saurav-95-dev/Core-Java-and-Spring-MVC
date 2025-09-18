@@ -1,50 +1,32 @@
-//Enums in java :
-//NOTES :
-//Enums are named constant.
-//Switch is recommended in case of Enums rather than if-else.
-//Although enums are treated as class in java , but you cannot extend enums with any other class.
-//Apart from the above you can have objects , methods , variables as well as constructors.
-//By-default enum in java extends the enum class.
-//** Once you write a parameterized constructor, the compiler does not give you a default constructor automatically.
-//But it doesn’t “die” permanently — you can still write your own default constructor explicitly.
-//Demonstration of enums with constructors , getters and setters :
+//Abstraction :
+//Introduction :
 
-enum Laptop{
-    macbook(12334) , hp(123) , lenovo , acer(4546); //Named objects
-
-    private int price;
-
-    private Laptop(){
-        System.out.println("default constructor called");
-        price = 1;
+abstract class A{
+    public abstract void code();
+    public abstract void manage();
+    public void testing(){
+        System.out.println("testing inside class A");
     }
-    private Laptop(int price){
-        System.out.println("Parameterized constructor called for :" + this.name());
-        this.price = price;
-    }
+}
 
-    //getters and setters:
-    public void setPrice(int p){
-        this.price = p;
+class B extends A{
+    public void code(){
+        System.out.println("Implemented code function");
     }
-    public int getPrice(){
-        return price;
+    public void manage(){
+        System.out.println("Implemented manage function");
     }
-
+    public void analyst(){
+        System.out.println("Inside analyst under subclass class B");
+    }
 }
 
 class Hello{
-    public static void main(String[] args){
-
-        Laptop l = Laptop.macbook;
-        System.out.println("Price of " + l + " is: " +l.getPrice());
-        System.out.println();
-        //Printing all laptop :
-        System.out.println("Printing all laptops:");
-        Laptop[] arr = Laptop.values();
-        for(Laptop i : arr){
-            System.out.println(i + "->" + i.ordinal() + " price -->" + i.getPrice() );
-        }
+    public static void main(String [] args){
+        A a = new B();
+        a.manage();
+        a.code();
+        a.testing();
 
     }
 }
