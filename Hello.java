@@ -7,17 +7,28 @@
 
 @FunctionalInterface //Annotations used here
 interface A{
-    void code();
+    void code(int i);
+}
+
+interface B{
+    int manage(int a , int b);
 }
 
 class Hello{
 
     public static void main(String [] args){
-       A a = ()->{
-           System.out.println("code implemented in lamda expression");
+       A a = (int i)->{
+           System.out.println("code implemented in lamda expression-" + i);
        };
 
-       a.code();
+       a.code(123);
+
+       B b = (int x , int y)->{
+           return x+y;
+       };
+       int result  = b.manage(12,4);
+        System.out.println(result);
     }
 
 }
+
