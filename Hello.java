@@ -10,16 +10,16 @@ interface A{
     void code();
 }
 
-class B implements A{
-    public void code(){
-        System.out.println("code method implemented");
-    }
-}
 
 class Hello{
 
     public static void main(String [] args){
-        A a = new B();
+        A a = new A()
+        {
+            public void code(){
+                System.out.println("code implemented inside anonymous inner class");
+            }
+        };
         a.code();
     }
 
