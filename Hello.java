@@ -14,6 +14,10 @@ interface B{
     int manage(int a , int b);
 }
 
+interface C{
+    public String testing(String name);
+}
+
 class Hello{
 
     public static void main(String [] args){
@@ -28,6 +32,13 @@ class Hello{
        };
        int result  = b.manage(12,4);
         System.out.println(result);
+
+        C c = (String name) ->{
+            return name;
+        };
+
+        String str = c.testing("Sapient");
+        System.out.println(str);
     }
 
 }
