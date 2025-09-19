@@ -10,17 +10,14 @@ interface A{
     void code();
 }
 
-
 class Hello{
 
     public static void main(String [] args){
-        A a = new A()
-        {
-            public void code(){
-                System.out.println("code implemented inside anonymous inner class");
-            }
-        };
-        a.code();
+       A a = ()->{
+           System.out.println("code implemented in lamda expression");
+       };
+
+       a.code();
     }
 
 }
