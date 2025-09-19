@@ -1,17 +1,18 @@
-//Annotations and Types of Interface :
-//Annotations are meant for resolving the bugs at run time.
+//Types of interface :
+//Normal interface , functional interface (SAM), Marker .
+//Normal interface are the one with 2 or more methods .
+//Functional interface are the one with only one method declaration.
+//Marker interfaces are actually blank interface with no method.
+//**We can use lambda expression only with functional interface.
 
-class A{
-    public void code(){
-        System.out.println("coding in a class ");
-    }
+@FunctionalInterface //Annotations used here
+interface A{
+    void code();
 }
 
-class B extends A{
-
-    @Override
+class B implements A{
     public void code(){
-        System.out.println("coding in b class");
+        System.out.println("code method implemented");
     }
 }
 
