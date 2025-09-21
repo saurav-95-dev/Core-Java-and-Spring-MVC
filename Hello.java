@@ -3,15 +3,12 @@
 //throws is used when there is ducking of the exceptions , and it makes sense for checked exceptions.
 
 class A{
-    public void show(){
+    public void show() throws ClassNotFoundException{
 
         System.out.println("Inside show function");
-        try{
+
             Class.forName("Demo");
-        }
-        catch (ClassNotFoundException e){
-            System.out.println("Sorry ..class not found anywhere...");
-        }
+
     }
 }
 
@@ -24,6 +21,11 @@ class Hello{
 
         System.out.println("Inside main function");
         A a = new A();
-        a.show();
+        try{
+            a.show();
+        }
+        catch (ClassNotFoundException e){
+            System.out.println("OOPs .. .class not found.." + e);
+        }
     }
 }
