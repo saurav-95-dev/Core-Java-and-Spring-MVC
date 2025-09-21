@@ -13,12 +13,12 @@ class Hello{
         try{
             result = i/j;
             if(j==2){
-                throw new ArithmeticException();
+                throw new ArithmeticException("This is a custom message alongwith the default one");
             }
         }
         catch(ArithmeticException e){
             result = i / 6;
-            System.out.println("Something went wrong here...!");
+            System.out.println("Something went wrong here...!" + e);
         }
         catch(Exception e){
             System.out.println("Inside parent exception class" + e);
