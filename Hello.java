@@ -10,10 +10,18 @@ class Hello{
     public static void main(String []args){
         int i = 12;
         int j = 0;
+        int result = 0;
 
-        int result = i/j; //Run time error
+        try{
+            result = i/j; //Run time error
+        }
+        catch (Exception e){
+            System.out.println("Something went wrong here..!");
+        }
+
         System.out.println("Inside main function");
         System.out.println(result);
+        System.out.println("last statement");
     }
 }
 
