@@ -1,28 +1,35 @@
-//Taking user-input in java :
+//Introduction to Threads :
+//Thread can be defined as smallest unit of a task.
+//We can have multiple threads at the same time.
+//In this example we are trying to execute the both the methods of both the class together , and for that purpose , we'll use threads.
+//Note that in every thread , you need to have a run method.
 
-//Implementing try with finally/ try with resources .
-//try can be used with finally.
-//finally is used where we want to execute some statement irrespective of the exception that we encounter.
-//finally can be used with try in order to close a resource.
-//finally is basically meant for closing the resource, closing DB connection , closing file etc.
+class A extends Thread{
+    public void run(){
+        for(int i=1;i<100;i++){
+            System.out.println("in a show..");
+        }
+    }
+}
 
-
-import javax.xml.transform.Source;
-import java.util.Scanner;
+class B extends Thread{
+    public void run(){
+        for(int i=1;i<100;i++){
+            System.out.println("in b show..");
+        }
+    }
+}
 
 class Hello{
-    public static void main(String [] args){
+    public static void main() {
 
-        System.out.println("Inside main");
-        Scanner sc = null;
-        try{
-            sc = new Scanner(System.in);
-            int result = sc.nextInt();
-            System.out.println(result);
-        }
-        finally {
-           sc.close();
-        }
+        A a = new A();
+        a.start();
+        System.out.println();
+        B b = new B();
+        b.start();
+
 
     }
+
 }
