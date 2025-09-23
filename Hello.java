@@ -1,24 +1,19 @@
-//throws : --> used where there  is ducking of exceptions:
+//finally block to close resource :
 
-class A {
-   public void show() throws ClassNotFoundException{
-       System.out.println("in a show ");
 
-           Class.forName("Demo");
-
-   }
-}
+import java.util.Scanner;
 
 class Hello{
-
     public static void main(String [] args){
-         A a  = new A();
-         try{
-             a.show();
-         }
-         catch(ClassNotFoundException e){
-             System.out.println("Ooops , ....class not found !");
-         }
-
+        System.out.println("Enter a number:");
+        Scanner sc = null;
+        try{
+            sc = new Scanner(System.in);
+            int result = sc.nextInt();
+            System.out.println(result);
+        }
+        finally {
+            sc.close();
+        }
     }
 }
