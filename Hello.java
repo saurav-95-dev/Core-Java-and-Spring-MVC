@@ -1,7 +1,7 @@
 //Multi-Threading :
 //Creating thread by implementing runnable interface via anonymous inner class.
 
-class A extends Thread{
+class A implements Runnable{
     public void run(){
         for(int i=1;i<100;i++){
             System.out.println("hii");
@@ -9,7 +9,7 @@ class A extends Thread{
     }
 }
 
-class B extends Thread{
+class B implements Runnable{
     public void run(){
         for(int i=1;i<100;i++){
             System.out.println("hello");
@@ -18,14 +18,16 @@ class B extends Thread{
 }
 
 
-
-
-class Hello{
-    public static void main(String [] args){
+class Hello {
+    public static void main(String[] args) {
         System.out.println("Inside main function");
-        A a = new A();
-        a.start();
-        B b = new B();
-        b.start();
+
+        Runnable a = new A();
+        Thread t1 = new Thread(a);
+        t1.start();
+        Runnable b = new B();
+        Thread t2 = new Thread(b);
+        t2.start();
+
     }
 }
