@@ -6,6 +6,7 @@
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 class Hello{
     public static void main(String []args){
@@ -25,8 +26,21 @@ class Hello{
             System.out.println(n);
         }
 
+        System.out.println("Printing using list:");
+        List<Integer> a =  new ArrayList<Integer>();
+        a.add(1);
+        a.add(3);
+        a.add(6);
+        a.add(13);
+        a.add(9);
+        a.add(7);
 
-
+        System.out.println(a.get(3));
+        System.out.println(a.indexOf(9));
+        System.out.println("printing elements:");
+        for(int i : a){
+            System.out.println(i);
+        }
 
     }
 }
