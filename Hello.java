@@ -1,8 +1,6 @@
 //Java Collection :
 //1) Concept of Collection interface .
 //Collection interface extends iterable interface .
-//List is basically an interface implemented by a class called ArrayList.
-//NOTE : List is a collection which can have duplicate elements.
 
 import java.util.ArrayList;
 import java.util.Collection;
