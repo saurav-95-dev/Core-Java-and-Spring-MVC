@@ -1,49 +1,40 @@
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-class ListComparison {
+public class MapComparison {
     public static void main(String[] args) {
-        // --- ArrayList vs. LinkedList performance ---
-        int size = 100_000;
-        List<Integer> arrayList = new ArrayList<>();
-        List<Integer> linkedList = new LinkedList<>();
+        System.out.println("--- HashMap (No Order) ---");
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Zebra", 1);
+        hashMap.put("Apple", 2);
+        hashMap.put("Cat", 3);
+        System.out.println(hashMap); // Order is not guaranteed
 
-        // Add elements to the end (similar performance)
-        for (int i = 0; i < size; i++) {
-            arrayList.add(i);
-            linkedList.add(i);
-        }
+        System.out.println("\n--- LinkedHashMap (Insertion Order) ---");
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("Zebra", 1);
+        linkedHashMap.put("Apple", 2);
+        linkedHashMap.put("Cat", 3);
+        System.out.println(linkedHashMap); // Order is based on insertion
 
-        // Mid-list insertion (LinkedList is faster)
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            arrayList.add(size / 2, i);
-        }
-        long end = System.currentTimeMillis();
-        System.out.println("ArrayList mid-insertion: " + (end - start) + "ms");
+        System.out.println("\n--- TreeMap (Natural Sorted Order) ---");
+        Map<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("Zebra", 1);
+        treeMap.put("Apple", 2);
+        treeMap.put("Cat", 3);
+        System.out.println(treeMap); // Sorted by key
 
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            linkedList.add(size / 2, i);
+        System.out.println("\n--- Null Keys and Values ---");
+        // HashMap and LinkedHashMap allow one null key
+        hashMap.put(null, 4);
+        linkedHashMap.put(null, 4);
+        // TreeMap does not allow null keys
+        try {
+            treeMap.put(null, 4);
+        } catch (NullPointerException e) {
+            System.out.println("TreeMap throws NullPointerException for null keys.");
         }
-        end = System.currentTimeMillis();
-        System.out.println("LinkedList mid-insertion: " + (end - start) + "ms");
-
-        // Random access (ArrayList is faster)
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            arrayList.get(i);
-        }
-        end = System.currentTimeMillis();
-        System.out.println("ArrayList random access: " + (end - start) + "ms");
-
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            linkedList.get(i);
-        }
-        end = System.currentTimeMillis();
-        System.out.println("LinkedList random access: " + (end - start) + "ms");
     }
 }
