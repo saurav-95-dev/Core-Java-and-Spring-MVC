@@ -1,40 +1,56 @@
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
-public class MapComparison {
+class Employee implements Comparable<Employee> {
+    int id;
+    String name;
+
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "id=" + id + ", name='" + name + '\'' + '}';
+    }
+
+    // Natural ordering: Sort by ID
+    @Override
+    public int compareTo(Employee other) {
+        return Integer.compare(this.id, other.id);
+    }
+}
+
+class EmployeeNameComparator implements Comparator<Employee> {
+    // Custom sorting: Sort by name
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.name.compareTo(emp2.name);
+    }
+}
+
+public class SortingExample {
     public static void main(String[] args) {
-        System.out.println("--- HashMap (No Order) ---");
-        Map<String, Integer> hashMap = new HashMap<>();
-        hashMap.put("Zebra", 1);
-        hashMap.put("Apple", 2);
-        hashMap.put("Cat", 3);
-        System.out.println(hashMap); // Order is not guaranteed
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(103, "Charlie"));
+        employees.add(new Employee(101, "Alice"));
+        employees.add(new Employee(102, "Bob"));
 
-        System.out.println("\n--- LinkedHashMap (Insertion Order) ---");
-        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        linkedHashMap.put("Zebra", 1);
-        linkedHashMap.put("Apple", 2);
-        linkedHashMap.put("Cat", 3);
-        System.out.println(linkedHashMap); // Order is based on insertion
+        System.out.println("Original list: " + employees);
 
-        System.out.println("\n--- TreeMap (Natural Sorted Order) ---");
-        Map<String, Integer> treeMap = new TreeMap<>();
-        treeMap.put("Zebra", 1);
-        treeMap.put("Apple", 2);
-        treeMap.put("Cat", 3);
-        System.out.println(treeMap); // Sorted by key
+        // Sort using Comparable (natural ordering by ID)
+        Collections.sort(employees);
+        System.out.println("Sorted by ID (Comparable): " + employees);
 
-        System.out.println("\n--- Null Keys and Values ---");
-        // HashMap and LinkedHashMap allow one null key
-        hashMap.put(null, 4);
-        linkedHashMap.put(null, 4);
-        // TreeMap does not allow null keys
-        try {
-            treeMap.put(null, 4);
-        } catch (NullPointerException e) {
-            System.out.println("TreeMap throws NullPointerException for null keys.");
-        }
+        // Sort using Comparator (custom ordering by name)
+        Collections.sort(employees, new EmployeeNameComparator());
+        System.out.println("Sorted by Name (Comparator): " + employees);
+
+        // Sort using a lambda expression (Comparator)
+        employees.sort(Comparator.comparingInt(e -> e.id));
+        System.out.println("Sorted by ID (Lambda Comparator): " + employees);
     }
 }
