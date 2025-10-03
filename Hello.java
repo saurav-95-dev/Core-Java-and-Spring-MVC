@@ -32,7 +32,7 @@ class EmployeeNameComparator implements Comparator<Employee> {
     }
 }
 
-public class SortingExample {
+class SortingExample {
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee(103, "Charlie"));
