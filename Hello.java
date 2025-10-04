@@ -2,11 +2,13 @@
 //->Starting with collection interface:
 //Collection belongs to java.util package.
 //Collections work with objects and not with the primitive values.
-
+//If you want to work with index , go with list .
+//Set contains unique unordered elements , whereas Tree-set contains unique elements in order.
 import java.util.*;
 
 class Hello{
     public static void main(String [] args){
+        //Collection:
         Collection<Integer> nums = new ArrayList <Integer>();
         nums.add(1);
         nums.add(2);
@@ -19,7 +21,7 @@ class Hello{
         for (int n : nums){
             System.out.println(n);
         }
-
+        //list :
         System.out.println("Now printing using list:");
         List<Integer> l = new ArrayList<Integer>();
         l.add(1);
@@ -34,8 +36,11 @@ class Hello{
         for (int n : l){
             System.out.println(n);
         }
+        System.out.println();
+        System.out.println(l.get(5));
+        System.out.println(l.indexOf(3));
         System.out.println("Printing values using set");
-
+        //Sets:
         Set<Integer> s = new HashSet<Integer>();
         s.add(1);
         s.add(2);
@@ -47,5 +52,6 @@ class Hello{
         for (int i : s){
             System.out.println(i);
         }
+
     }
 }
