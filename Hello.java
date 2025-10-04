@@ -1,56 +1,28 @@
-//All in one place :
-import java.util.*;
+//Map : Key-value pair ->resembles - List-Set pair behaviour in terms of repeated values.
+//If you want to use synchronized version u can use hashtable otherwise use hashmap.
+//If u  have multiple threads working it is better to use hashtable to get it synchronized.
+
+import java.util.HashMap;
+import java.util.Map;
 
 class Hello{
     public static void main(String[]args){
-        //Collection:
-        Collection<Integer> c = new ArrayList<Integer>();
-        c.add(1);
-        c.add(2);
-        c.add(3);
-        c.add(4);
-        System.out.println("Directly printing:");
-        System.out.println(c);
-        System.out.println("Printing without generics using loops:");
-        for(Object o : c){
-            System.out.println((int)o);
+        Map<String , Integer> students = new HashMap<>();
+        students.put("saurabh" , 62);
+        students.put("laukik" , 22);
+        students.put("sudhanshu" , 33);
+        students.put("rkg" , 45);
+        System.out.println("printing the keys directly");
+        System.out.println(students.keySet());
+        System.out.println();
+        System.out.println("printing keys using loop:");
+        for(String s : students.keySet()){
+            System.out.println(s);
         }
-        System.out.println("Printing via utilising generics:");
-        for(int i : c){
-            System.out.println(i);
-        }
-        //List :
-        List<Integer> l = new ArrayList<Integer>();
-        l.add(11);
-        l.add(12);
-        l.add(13);
-        l.add(14);
-        l.add(12);
-        System.out.println("Directly printing :");
-        System.out.println(l);
-        System.out.println("printing using loop");
-        for(int i : l){
-            System.out.println(i);
-        }
-        //Set:
-        Set<Integer> s = new HashSet<Integer>();
-        s.add(20);
-        s.add(21);
-        s.add(22);
-        s.add(23);
-        s.add(24);
-        s.add(21);
-        System.out.println("Directly printing:");
-        System.out.println(s);
-        System.out.println("Printing using loop:");
-        for(int i : s){
-            System.out.println(i);
-        }
-        System.out.println("printing using iterator:");
-
-        Iterator<Integer> val = s.iterator();
-        while (val.hasNext()){
-            System.out.println(val.next());
+        System.out.println();
+        System.out.println("printing key-val pair:");
+        for(String s : students.keySet()){
+            System.out.println(s + "->" + students.get(s));
         }
 
     }
