@@ -1,57 +1,20 @@
-//Starting Collections :
-//->Starting with collection interface:
-//Collection belongs to java.util package.
-//Collections work with objects and not with the primitive values.
-//If you want to work with index , go with list .
-//Set contains unique unordered elements , whereas Tree-set contains unique elements in order.
+
 import java.util.*;
 
 class Hello{
     public static void main(String [] args){
-        //Collection:
-        Collection<Integer> nums = new ArrayList <Integer>();
-        nums.add(1);
-        nums.add(2);
-        nums.add(3);
-        nums.add(4);
-        nums.add(5);
-        System.out.println("Printing the values directly:");
-        System.out.println(nums);
-        System.out.println("Printing using for loop:");
-        for (int n : nums){
-            System.out.println(n);
-        }
-        //list :
-        System.out.println("Now printing using list:");
-        List<Integer> l = new ArrayList<Integer>();
-        l.add(1);
-        l.add(2);
-        l.add(3);
-        l.add(4);
-        l.add(5);
-        l.add(3);
-        System.out.println("Printing list directly:");
-        System.out.println(l);
-        System.out.println("printing list using for loop");
-        for (int n : l){
-            System.out.println(n);
-        }
-        System.out.println();
-        System.out.println(l.get(5));
-        System.out.println(l.indexOf(3));
-        System.out.println("Printing values using set");
-        //Sets:
-        Set<Integer> s = new HashSet<Integer>();
-        s.add(1);
-        s.add(2);
-        s.add(3);
-        s.add(4);
-        System.out.println("Printing set values directly:");
-        System.out.println(s);
-        System.out.println("Printing set values using loop:");
-        for (int i : s){
-            System.out.println(i);
-        }
+        //Iterators:
+        Collection<Integer> c = new ArrayList<Integer>();
+        c.add(1);
+        c.add(2);
+        c.add(3);
+        c.add(4);
+        System.out.println("printing using iterator:");
 
+        Iterator<Integer> val = c.iterator();
+
+        while (val.hasNext()){
+            System.out.println(val.next());
+        }
     }
 }
