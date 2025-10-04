@@ -5,6 +5,7 @@
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 class Hello{
     public static void main(String [] args){
@@ -20,5 +21,20 @@ class Hello{
         for (int n : nums){
             System.out.println(n);
         }
+
+        System.out.println("Now printing using list:");
+        List<Integer> l = new ArrayList<Integer>();
+        l.add(1);
+        l.add(2);
+        l.add(3);
+        l.add(4);
+        l.add(5);
+        System.out.println("Printing list directly:");
+        System.out.println(l);
+        System.out.println("printing list using for loop");
+        for (int n : l){
+            System.out.println(n);
+        }
+
     }
 }
