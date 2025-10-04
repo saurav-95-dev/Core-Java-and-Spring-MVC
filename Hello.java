@@ -8,18 +8,17 @@ import java.util.Collection;
 
 class Hello{
     public static void main(String [] args){
-        Collection nums = new ArrayList();
+        Collection<Integer> nums = new ArrayList <Integer>();
         nums.add(1);
         nums.add(2);
         nums.add(3);
         nums.add(4);
         nums.add(5);
-        nums.add("6"); //Here it will give run time exception.Hence, to prevent this , we use generics.
         System.out.println("Printing the values directly:");
         System.out.println(nums);
         System.out.println("Printing using for loop:");
-        for (Object n : nums){
-            System.out.println((int)n);
+        for (int n : nums){
+            System.out.println(n);
         }
     }
 }
