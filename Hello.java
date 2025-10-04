@@ -1,29 +1,24 @@
-//Map : Key-value pair ->resembles - List-Set pair behaviour in terms of repeated values.
-//If you want to use synchronized version u can use hashtable otherwise use hashmap.
-//If u  have multiple threads working it is better to use hashtable to get it synchronized.
+//Sorting in collection and the concept of comparator and comparable:
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 class Hello{
-    public static void main(String[]args){
-        Map<String , Integer> students = new HashMap<>();
-        students.put("saurabh" , 62);
-        students.put("laukik" , 22);
-        students.put("sudhanshu" , 33);
-        students.put("rkg" , 45);
-        System.out.println("printing the keys directly");
-        System.out.println(students.keySet());
-        System.out.println();
-        System.out.println("printing keys using loop:");
-        for(String s : students.keySet()){
-            System.out.println(s);
-        }
-        System.out.println();
-        System.out.println("printing key-val pair:");
-        for(String s : students.keySet()){
-            System.out.println(s + "->" + students.get(s));
-        }
-
+    public static void main(String [] args){
+        List<Integer> l = new ArrayList<>();
+        l.add(12);
+        l.add(13);
+        l.add(31);
+        l.add(1);
+        l.add(8);
+        l.add(63);
+        System.out.println("printing normally:");
+        System.out.println(l);
+        //to sort the values we have a special class called Collections:
+        System.out.println("After sorting:");
+        Collections.sort(l);
+        System.out.println(l);
     }
 }
