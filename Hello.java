@@ -4,8 +4,29 @@
 //To implement the comparator interface , we can use either anonymous class or a class which implements interface.
 //Sorting based on the magnitude of last digit.
 //NOTE : Comparator is a functional interface.
+//Creating a class of student and then sorting according to the age.
+
 import java.util.*;
 
+class Student{
+
+    int age;
+    String name;
+
+    //constructor:
+    public Student(String name , int age){
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
 class Hello{
     public static void main(String [] args){
 
@@ -24,6 +45,15 @@ class Hello{
         Comparator<String> c2 = new Comparator<String>(){
             public int compare(String s1 , String s2){
                 if (s1.length() > s2.length())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+
+        Comparator<Student> c3 = new Comparator<Student>(){
+            public int compare(Student i , Student j){
+                if (i.age > j.age)
                     return 1;
                 else
                     return -1;
@@ -59,6 +89,28 @@ class Hello{
         System.out.println("printing strings sorted according to length");
         Collections.sort(s , c2);
         System.out.println(s);
+        System.out.println();
+        //Creating the list of student :
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Saurabh dev" , 24));
+        students.add(new Student("Rahul Kumar Gupta" , 77));
+        students.add(new Student("Vikas" , 22));
+        students.add(new Student("Laukik" , 25));
+        students.add(new Student("Kiran" , 21));
+        System.out.println("printing student directly without loop:");
+        System.out.println(students);
+        System.out.println();
+        System.out.println("printing students using loop one by one:");
+        for(Student i : students){
+            System.out.println(i);
+        }
+        System.out.println();
+        System.out.println("Sorting the students according to their age :");
+        Collections.sort(students , c3); // Here we need to pass c3 as we are not using Comparable
+        for(Student i : students){
+            System.out.println(i);
+        }
+
 
     }
 }
