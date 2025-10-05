@@ -8,7 +8,7 @@
 
 import java.util.*;
 
-class Student{
+class Student implements Comparable<Student>{
 
     int age;
     String name;
@@ -25,6 +25,13 @@ class Student{
                 "age=" + age +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public int compareTo(Student that){
+        if (this.age > that.age)
+            return 1;
+        else
+            return -1;
     }
 }
 class Hello{
@@ -105,8 +112,10 @@ class Hello{
             System.out.println(i);
         }
         System.out.println();
-        System.out.println("Sorting the students according to their age :");
-        Collections.sort(students , c3); // Here we need to pass c3 as we are not using Comparable
+        System.out.println("Sorting the students according to their age using comparable interface :");
+        // Collections.sort(students , c3); // Here we need to pass c3 as we are not using Comparable
+        // Not passing c3 , in that case we need to define logic separately inside Student class via compareTo() method.
+        Collections.sort(students);
         for(Student i : students){
             System.out.println(i);
         }
