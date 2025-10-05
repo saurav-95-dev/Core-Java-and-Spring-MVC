@@ -3,13 +3,14 @@
 //Customized sorting --> we can use comparator which is an interface.
 //To implement the comparator interface , we can use either anonymous class or a class which implements interface.
 //Sorting based on the magnitude of last digit.
+//NOTE : Comparator is a functional interface.
 import java.util.*;
 
 class Hello{
     public static void main(String [] args){
 
         //Implementing comparator :
-        Comparator<Integer> c = new Comparator<Integer>()
+        Comparator<Integer> c1 = new Comparator<Integer>()
         {
             public int compare(Integer i , Integer j){
                 if (i%10 > j%10)
@@ -18,6 +19,15 @@ class Hello{
                     return -1;
             }
 
+        };
+
+        Comparator<String> c2 = new Comparator<String>(){
+            public int compare(String s1 , String s2){
+                if (s1.length() > s2.length())
+                    return 1;
+                else
+                    return -1;
+            }
         };
 
         List<Integer> l = new ArrayList<>();
@@ -30,14 +40,25 @@ class Hello{
         l.add(19);
         System.out.println("printing normally:");
         System.out.println(l);
-
         //to sort the values we have a special class called Collections:
         System.out.println("Normal sorting : ");
         Collections.sort(l);
         System.out.println(l);
         System.out.println("Sorting based on last digit:");
-        Collections.sort(l , c);
+        Collections.sort(l , c1);
         System.out.println(l);
+        System.out.println();
+        //CREATING A LIST OF STRINGS AND THEN SORTING BASED ON LENGTH.
+        List<String> s = new ArrayList<>();
+        s.add("Saurabh dev");
+        s.add("Shubham");
+        s.add("Laukik");
+        s.add("Shudhanshu");
+        System.out.println("Printing strings normally");
+        System.out.println(s);
+        System.out.println("printing strings sorted according to length");
+        Collections.sort(s , c2);
+        System.out.println(s);
 
     }
 }
