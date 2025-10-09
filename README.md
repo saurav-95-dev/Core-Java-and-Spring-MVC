@@ -19,8 +19,5 @@ Date : September 21 - September 22 , 2025 :
 Date : September 22 - September - 24 , 2025 : 
 -> Concept of Multi-Threading
 
-Date : September 26 - 1 Oct
---> Java Collections 
-
 
 
