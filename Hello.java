@@ -20,7 +20,8 @@ class Hello{
         System.out.println(c);
         System.out.println("printing collection via loop without using generics");
         for(Object o : c){
-            System.out.println(o);
+            System.out.println((int)o);
         }
+
     }
 }
