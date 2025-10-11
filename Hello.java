@@ -10,18 +10,19 @@ import java.util.Collection;
 class Hello{
     public static void main(String[]args){
         System.out.println("Working with collection:");
-        Collection c = new ArrayList();
+        Collection<Integer> c = new ArrayList<>();
         c.add(1);
         c.add(2);
         c.add(3);
         c.add(4);
-        c.add("5");
-        System.out.println("printing collection directly without generics");
+       // c.add("5");
+        System.out.println("printing collection directly generics");
         System.out.println(c);
-        System.out.println("printing collection via loop without using generics");
-        for(Object o : c){
-            System.out.println((int)o);
+        System.out.println("printing collection via loop using generics:");
+        for(int i : c){
+            System.out.println(i);
         }
 
     }
 }
+
