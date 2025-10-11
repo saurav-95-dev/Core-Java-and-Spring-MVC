@@ -1,10 +1,7 @@
 //Sorting in collection and the use of comparator
 //Comparator is an interface
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 class Hello{
     public static void main(String[]args){
@@ -14,6 +11,15 @@ class Hello{
                 if(i%10 > j%10){
                     return  1;
                 }
+                else
+                    return -1;
+            }
+        };
+
+        Comparator<String> c1 = new Comparator<String>(){
+            public int compare(String s1 , String s2){
+                if(s1.length() > s2.length())
+                    return 1;
                 else
                     return -1;
             }
@@ -32,6 +38,20 @@ class Hello{
         System.out.println("After sorting with using comparator:");
         Collections.sort(l , com);
         System.out.println(l);
+        //sorting the strings based on length:
+        List<String> l1 = new ArrayList<>();
+        l1.add("saurabh dev");
+        l1.add("laukik");
+        l1.add("kiran");
+        l1.add("great khali");
+        l1.add("the under taker");
+        l1.add("Alister.. the demolition man...!");
+        l1.add("bee");
+        System.out.println("printing strings normally :");
+        System.out.println(l1);
+        System.out.println("sorting strings based on lenght:");
+        Collections.sort(l1 , c1);
+        System.out.println(l1);
 
 
     }
