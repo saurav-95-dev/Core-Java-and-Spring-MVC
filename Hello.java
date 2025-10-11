@@ -22,7 +22,18 @@ class Hello{
         for(int i : c){
             System.out.println(i);
         }
-
+        System.out.println("ArrayList");
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        a.add(1);
+        System.out.println("printing directly:");
+        System.out.println(a);
+        System.out.println("using loop");
+        for(int i : a){
+            System.out.println(i);
+        }
     }
 }
 
