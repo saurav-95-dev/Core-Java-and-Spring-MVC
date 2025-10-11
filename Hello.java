@@ -69,6 +69,12 @@ class Hello{
         //m.put("Saurabh" , 78);
         System.out.println("printing map directly:");
         System.out.println(m);
+        System.out.println("Getting all the keys from map-val pair:");
+        System.out.println(m.keySet());
+        System.out.println("printing the via loop:");
+        for(String str : m.keySet()){
+            System.out.println(str + "->" + m.get(str));
+        }
 
     }
 }
