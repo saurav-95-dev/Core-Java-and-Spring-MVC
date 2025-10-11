@@ -3,9 +3,8 @@
 //Iterable interface extends Collection interface .
 //List , Queue and Set are 3 interfaces that are extended by Collection interface.
 //List is implemented by class called ArrayList , and Set is implemented by class called HashSet().
-
-import java.util.ArrayList;
-import java.util.Collection;
+//If you wanna work with index , go with the list because set doesn't support index value.
+import java.util.*;
 
 class Hello{
     public static void main(String[]args){
@@ -23,7 +22,7 @@ class Hello{
             System.out.println(i);
         }
         System.out.println("ArrayList");
-        ArrayList<Integer> a = new ArrayList<Integer>();
+        List<Integer> a = new ArrayList<Integer>();
         a.add(1);
         a.add(2);
         a.add(3);
@@ -34,6 +33,30 @@ class Hello{
         for(int i : a){
             System.out.println(i);
         }
+        System.out.println("using get method of list:");
+        System.out.println(a.get(2));
+        System.out.println(a.indexOf(2));
+        System.out.println();
+        System.out.println("Working with Set:");
+        Set<Integer> s = new HashSet<>();
+        s.add(1);
+        s.add(2);
+        s.add(3);
+        s.add(4);
+        s.add(2);
+        System.out.println("printing directly:");
+        System.out.println(s);
+        System.out.println("using loop:");
+        for(int i : s){
+            System.out.println(i);
+        }
+        System.out.println("Working with Iterable inteface:");
+        System.out.println("Printing set values using Iterable:");
+        Iterator<Integer> val = s.iterator();
+        while(val.hasNext()){
+            System.out.println(val.next());
+        }
+
     }
 }
 
