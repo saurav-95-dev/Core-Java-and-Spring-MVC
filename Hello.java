@@ -1,6 +1,5 @@
 //Sorting in collection and the use of comparator
-//Comparator is an functional interface.
-//
+//Comparator is an functional interface and can extends comparable
 
 import java.util.*;
 class Student{
@@ -20,6 +19,35 @@ class Student{
                 ", name='" + name + '\'' +
                 '}';
     }
+}
+
+class Profession implements Comparable<Profession>{
+
+    String role;
+    int salary;
+
+    //constructor:
+    public Profession(int salary , String role){
+        this.salary = salary;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Profession{" +
+                "role='" + role + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+
+    public int compareTo(Profession that) {
+        if (this.role.length() > that.role.length())
+            return 1;
+        else
+            return -1;
+    }
+
+
 }
 
 class Hello{
@@ -113,5 +141,21 @@ class Hello{
         for(Student studs : v){
             System.out.println(studs);
         }
+        System.out.println();
+        System.out.println("sorting using comparable:");
+        //creating a list of profession class:
+        List<Profession> p = new ArrayList<>();
+        p.add(new Profession(3000000 , "Software Engineer"));
+        p.add(new Profession(102300 , "BA"));
+        p.add(new Profession(102000 , "Tester"));
+        p.add(new Profession(220080 , "Manager"));
+        p.add(new Profession(10000 , "Service Desk"));
+
+        Collections.sort(p);
+        System.out.println("printing sorted value of profession based on length of the string:");
+        for(Profession i : p){
+            System.out.println(i);
+        }
+
     }
 }
