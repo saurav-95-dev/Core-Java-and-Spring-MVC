@@ -25,6 +25,14 @@ class Student{
 class Hello{
     public static void main(String[]args){
 
+        Comparator<Student> c4  = new Comparator<Student>(){
+            public int compare(Student s1 , Student s2){
+                if (s1.name.length() > s2.name.length())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
         Comparator<Student> c3 = new Comparator<Student>(){
             public int compare(Student s1 , Student s2){
                 if (s1.age > s2.age)
@@ -83,11 +91,11 @@ class Hello{
         //Customized sorting via custom class:
         //creating the list of student:
         List<Student> v = new ArrayList<>();
-        v.add(new Student(25 , "Saurabh"));
+        v.add(new Student(25 , "Saurabh dev "));
         v.add(new Student(21 , "Laukik"));
-        v.add(new Student(15 , "Himanshu Gaurav"));
+        v.add(new Student(15 , "Himanshu Gaurav AIR-2"));
         v.add(new Student(28 , "Aviral"));
-        v.add(new Student(22 , "Kashish"));
+        v.add(new Student(22 , "Ali"));
 
         System.out.println(v);
         System.out.println("printing students value one by one:");
@@ -100,7 +108,10 @@ class Hello{
             System.out.println(studs);
         }
         System.out.println();
-
-
+        System.out.println("sorting based on the length of the string using comparable :");
+        Collections.sort(v ,c4);
+        for(Student studs : v){
+            System.out.println(studs);
+        }
     }
 }
