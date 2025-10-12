@@ -51,7 +51,7 @@ class Profession implements Comparable<Profession>{
 
 }
 
-class Tech{
+class Tech implements Comparable<Tech>{
 
     int rating;
     String stack;
@@ -60,6 +60,14 @@ class Tech{
     public Tech(int rating , String stack){
         this.rating = rating;
         this.stack  = stack;
+    }
+    //writing compareTo method:
+    public int compareTo(Tech that){
+        if(this.stack.length() > that.stack.length()){
+            return 1;
+        }
+        else
+            return -1;
     }
 
     @Override
@@ -206,7 +214,10 @@ class Hello{
             System.out.println(i);
         }
         System.out.println();
-
-
+        System.out.println("now sorting tech based on the length of the string of their stack..");
+        Collections.sort(t);
+        for(Tech i : t){
+            System.out.println(i);
+        }
     }
 }
