@@ -85,14 +85,12 @@ class Hello{
     public static void main(String[]args){
 
 
-        Comparator<Tech> t1= new Comparator<Tech>()
-        {
-            public int compare(Tech s1 , Tech s2){
-                if(s1.rating > s2.rating)
-                    return 1;
-                else
-                    return -1;
-        }
+        Comparator<Tech> t1 = (s1 , s2) ->{
+
+            if(s1.rating > s2.rating)
+                return 1;
+            else
+                return -1;
         };
         Comparator<Student> c4  = new Comparator<Student>(){
             public int compare(Student s1 , Student s2){
