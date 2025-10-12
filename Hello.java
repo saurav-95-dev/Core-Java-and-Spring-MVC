@@ -1,10 +1,38 @@
 //Sorting in collection and the use of comparator
-//Comparator is an interface
+//Comparator is an functional interface.
+//
 
 import java.util.*;
+class Student{
+   int age;
+   String name;
+
+   //constructor
+    public Student(int age , String name){
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
 
 class Hello{
     public static void main(String[]args){
+
+        Comparator<Student> c3 = new Comparator<Student>(){
+            public int compare(Student s1 , Student s2){
+                if (s1.age > s2.age)
+                    return 1;
+                else
+                    return -1;
+            }
+        };
 
         Comparator<Integer> com = new Comparator<Integer>(){
             public int compare(Integer i , Integer j){
@@ -52,6 +80,26 @@ class Hello{
         System.out.println("sorting strings based on lenght:");
         Collections.sort(l1 , c1);
         System.out.println(l1);
+        //Customized sorting via custom class:
+        //creating the list of student:
+        List<Student> v = new ArrayList<>();
+        v.add(new Student(25 , "Saurabh"));
+        v.add(new Student(21 , "Laukik"));
+        v.add(new Student(15 , "Himanshu Gaurav"));
+        v.add(new Student(28 , "Aviral"));
+        v.add(new Student(22 , "Kashish"));
+
+        System.out.println(v);
+        System.out.println("printing students value one by one:");
+        for(Student studs : v){
+            System.out.println(studs);
+        }
+        Collections.sort(v , c3);
+        System.out.println("after sorting student based on their age:");
+        for(Student studs : v){
+            System.out.println(studs);
+        }
+        System.out.println();
 
 
     }
