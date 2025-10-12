@@ -1,6 +1,7 @@
 //Sorting in collection and the use of comparator
 //Comparator is an functional interface and can extends comparable
 
+import java.sql.SQLOutput;
 import java.util.*;
 class Student{
    int age;
@@ -50,9 +51,41 @@ class Profession implements Comparable<Profession>{
 
 }
 
+class Tech{
+
+    int rating;
+    String stack;
+
+    //constructor:
+    public Tech(int rating , String stack){
+        this.rating = rating;
+        this.stack  = stack;
+    }
+
+    @Override
+    public String toString() {
+        return "Tech{" +
+                "rating=" + rating +
+                ", stack='" + stack + '\'' +
+                '}';
+    }
+
+}
+
+
 class Hello{
     public static void main(String[]args){
 
+
+        Comparator<Tech> t1= new Comparator<Tech>()
+        {
+            public int compare(Tech s1 , Tech s2){
+                if(s1.rating > s2.rating)
+                    return 1;
+                else
+                    return -1;
+        }
+        };
         Comparator<Student> c4  = new Comparator<Student>(){
             public int compare(Student s1 , Student s2){
                 if (s1.name.length() > s2.name.length())
@@ -156,6 +189,24 @@ class Hello{
         for(Profession i : p){
             System.out.println(i);
         }
+        //Creating a list of Tech:
+        List<Tech> t = new ArrayList<Tech>();
+        t.add(new Tech(4 , "Java"));
+        t.add(new Tech(6 , "Springboot"));
+        t.add((new Tech(3 , "C")));
+        t.add(new Tech(2 , "COBOL"));
+        System.out.println("printing directly via loop without sorting..");
+        for(Tech i : t){
+            System.out.println(i);
+        }
+        System.out.println();
+        System.out.println("Sorting Tech class based on rating using ccomparator..");
+        Collections.sort(t , t1);
+        for(Tech i : t){
+            System.out.println(i);
+        }
+        System.out.println();
+
 
     }
 }
