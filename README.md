@@ -5,43 +5,12 @@
 
 ## Topics - CORE-JAVA (SPRING MVC) :
 
-Date : September 10-14 , 2025 : 
--> Topic : Abstraction and abstract keyword.
--> Topic : Wrapper classes 
--> Topic : Inner classes and interfaces
-
-Date : September 17 , 2025 : 
--> Enums and Annotations and Types of Interface
-
-Date : September 21 - September 22 , 2025 : 
--> Exception 
-
-Date : September 22 - September - 24 , 2025 : 
--> Concept of Multi-Threading
-
 ## Visit my youtube channel : https://www.youtube.com/@sauravdev4757
 ## Follow me on my Twitter : https://x.com/Saurav_dev21
 ## My Linkedin : https://www.linkedin.com/in/saurabh-dev-9120aa236/
 ## Follow me on my Instagram : https://www.instagram.com/sauravdev20002019/profilecard/?igsh=cnJsaGlqMnZjMm5h 
 
-## Topics - CORE-JAVA (SPRING MVC) :
 
-Date : September 10-14 , 2025 : 
--> Topic : Abstraction and abstract keyword.
--> Topic : Wrapper classes 
--> Topic : Inner classes and interfaces
-
-Date : September 17 , 2025 : 
--> Enums and Annotations and Types of Interface
-
-Date : September 21 - September 22 , 2025 : 
--> Exception 
-
-Date : September 22 - September - 24 , 2025 : 
--> Concept of Multi-Threading
-
-Date : October 9 
--> 
 
 
 
