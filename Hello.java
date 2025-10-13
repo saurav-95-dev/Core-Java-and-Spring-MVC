@@ -1,8 +1,3 @@
-hence we will get run-time exception :
-//Starting Collections :
-//->Starting with collection interface:
-//Collection belongs to java.util package.
-//Collections work with objects and not with the primitive values.
 
 import java.util.ArrayList;
 import java.util.Collection;
