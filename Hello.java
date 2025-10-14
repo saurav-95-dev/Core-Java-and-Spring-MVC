@@ -48,10 +48,7 @@ class Hello{
         }
         System.out.println("printing using iterator:");
 
-        Iterator<Integer> val = s.iterator();
-        while (val.hasNext()){
-            System.out.println(val.next());
-        }
+
 
     }
 }
