@@ -32,21 +32,7 @@ class Hello{
         for(int i : l){
             System.out.println(i);
         }
-        //Set:
-        Set<Integer> s = new HashSet<Integer>();
-        s.add(20);
-        s.add(21);
-        s.add(22);
-        s.add(23);
-        s.add(24);
-        s.add(21);
-        System.out.println("Directly printing:");
-        System.out.println(s);
-        System.out.println("Printing using loop:");
-        for(int i : s){
-            System.out.println(i);
-        }
-        System.out.println("printing using iterator:");
+
 
 
 
