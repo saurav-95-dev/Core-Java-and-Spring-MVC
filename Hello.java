@@ -1,31 +1,29 @@
-//Inner class :
 
-class A{
-    public void code(){
-        System.out.println("Inside code method under A class");
+abstract class A{
+    public abstract void code();
+    public void manage(){
+        System.out.println("Inside manage method under A class ");
     }
+    public abstract void testing();
 
-    class B{
-        public void manage(){
-            System.out.println("Inside manage method under inner B class");
-        }
-    }
-    static class C{
-        public void testing(){
-            System.out.println("Inside testing method under inner C class");
-        }
-    }
 }
 
+abstract class B extends A{
+    public void code(){
+        System.out.println("code method implemented");
+    }
+}
+class C extends B{
+    public void testing(){
+        System.out.println("Testing method implemented");
+    }
+}
 public class Hello{
     public static void main(String []args){
-
-        A a = new A();
+        A a  = new C();
         a.code();
-        A.B b = a.new B();
-        b.manage();
-        A.C c = new A.C();
-        c.testing();
+        a.manage();
+        a.testing();
 
     }
 }
