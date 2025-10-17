@@ -1,26 +1,31 @@
-//Inner class and abstraction :
+//Inner class :
 
-abstract class A{
-    public abstract void code();
-    public void manage(){
-        System.out.println("Inside manage method under A class");
+class A{
+    public void code(){
+        System.out.println("Inside code method under A class");
+    }
+
+    class B{
+        public void manage(){
+            System.out.println("Inside manage method under inner B class");
+        }
+    }
+    static class C{
+        public void testing(){
+            System.out.println("Inside testing method under inner C class");
+        }
     }
 }
 
 public class Hello{
     public static void main(String []args){
-        System.out.println("Inside main function");
-        A a = new A()
-        {
 
-            public void manage() {
-                System.out.println("Manage method changed");
-            }
-            public void code() {
-                System.out.println("Code is defined under anonymous inner class");
-            }
-        };
+        A a = new A();
         a.code();
-        a.manage();
+        A.B b = a.new B();
+        b.manage();
+        A.C c = new A.C();
+        c.testing();
+
     }
 }
