@@ -1,29 +1,18 @@
 
-abstract class A{
-    public abstract void code();
-    public void manage(){
-        System.out.println("Inside manage method under A class ");
-    }
-    public abstract void testing();
-
-}
-
-abstract class B extends A{
-    public void code(){
-        System.out.println("code method implemented");
+abstract class A {
+    A() {
+        System.out.println("A's constructor");
     }
 }
-class C extends B{
-    public void testing(){
-        System.out.println("Testing method implemented");
+
+class B extends A {
+    B() {
+        System.out.println("B's constructor");
     }
 }
-public class Hello{
-    public static void main(String []args){
-        A a  = new C();
-        a.code();
-        a.manage();
-        a.testing();
 
+public class Hello {
+    public static void main(String[] args) {
+        B b = new B();
     }
 }
