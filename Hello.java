@@ -3,7 +3,12 @@
 //Java collection works with objects .
 //Collection and Set don't support working with index but List does.
 //List support duplicate elements while Set don't.
-//Set ---> no duplicates and unsorted
+//Set ---> no duplicates and unsorted.
+//Map itself is an interface  and the class which implements it is -> Hashmap.
+//Map is basically --> Set-List implementation combination.
+//In case of map , if we already have existing key , it will replace it .
+
+
 import java.util.*;
 
 class Hello{
@@ -61,6 +66,19 @@ class Hello{
         System.out.println(t);
         for(int i : t){
             System.out.println(i);
+        }
+        //Map :
+        System.out.println("Working woth maps:");
+        Map<String , Integer> students = new HashMap<>();
+        students.put("Saurabh" , 12);
+        students.put("navin" , 13);
+        students.put("putin" , 33);
+        System.out.println(students);
+        System.out.println("printing all keyset:");
+        System.out.println(students.keySet());
+        System.out.println("printing map values using loop:");
+        for(String key : students.keySet()){
+            System.out.println(key + " --> " + students.get(key));
         }
 
 
