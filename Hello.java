@@ -40,7 +40,30 @@ class Hello{
         s.add(55);
         s.add(22);
         System.out.println(s);
-        
+        System.out.println("Printing set values using Iterable:");
+
+        Iterator<Integer> val = s.iterator();
+
+        while (val.hasNext()){
+            System.out.println(val.next());
+        }
+        System.out.println("working with tree-set:");
+        TreeSet<Integer> t = new TreeSet<Integer>();
+        t.add(22);
+        t.add(33);
+        t.add(44);
+        t.add(55);
+        t.add(22);
+        t.add(2);
+        t.add(1);
+        t.add(77);
+
+        System.out.println(t);
+        for(int i : t){
+            System.out.println(i);
+        }
+
+
 
     }
 }
