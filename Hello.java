@@ -2,10 +2,9 @@
 //NOTES:
 //Java collection works with objects .
 //Collection and Set don't support working with index but List does.
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+//List support duplicate elements while Set don't.
+//Set ---> no duplicates and unsorted
+import java.util.*;
 
 class Hello{
     public static void main(String[] args){
@@ -26,11 +25,22 @@ class Hello{
         l.add(12);
         l.add(13);
         l.add(14);
+        l.add(11);
         System.out.println(l);
         for(int i : l){
             System.out.println(i);
         }
         System.out.println("index of 12 in list is : " + l.indexOf(12));
         System.out.println("getting value at index 2 : " + l.get(2));
+        System.out.println("Working with Set:");
+        Set<Integer> s = new HashSet<Integer>();
+        s.add(22);
+        s.add(33);
+        s.add(44);
+        s.add(55);
+        s.add(22);
+        System.out.println(s);
+        
+
     }
 }
