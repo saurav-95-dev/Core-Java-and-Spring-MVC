@@ -1,49 +1,30 @@
-import java.util.*;
+//Revisit java collection :
+//NOTES :
+//There are 3 things --> collection api , Collection , Collections.
+//collection api is a topic , Collection is ann interface , Collections is a class.
+//
 
-class Test implements Runnable {
-    private Map<Integer, String> map;
+import java.util.ArrayList;
+import java.util.Collection;
 
-    public Test(Map<Integer, String> map) {
-        this.map = map;
-    }
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            map.put(i, Thread.currentThread().getName() + "-" + i);
-            try {
-                Thread.sleep(10); // simulate delay
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+class Hello{
+    public static void main(String[] args){
+        //Working with collection interface which is implemented by class - List:
+        Collection nums = new ArrayList();
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(4);
+        //run-time exception vulnerability:
+        nums.add("5");
+        System.out.println("Printing without loop:");
+        System.out.println(nums);
+        System.out.println("printing with loops but without generics:");
+        for(Object o : nums){
+            System.out.println((Integer)o);
         }
-    }
-}
 
-public class Hello {
-    public static void main(String[] args) throws InterruptedException {
 
-        // ✅ Try with HashMap (NOT thread-safe)
-        Map<Integer, String> hashMap = new HashMap<>();
-        runTest(hashMap, "HashMap");
 
-        System.out.println("\n---------------------------\n");
-
-        // ✅ Try with Hashtable (thread-safe)
-        Map<Integer, String> hashtable = new Hashtable<>();
-        runTest(hashtable, "Hashtable");
-    }
-
-    private static void runTest(Map<Integer, String> map, String type) throws InterruptedException {
-        Thread t1 = new Thread(new Test(map), "T1");
-        Thread t2 = new Thread(new Test(map), "T2");
-
-        t1.start();
-        t2.start();
-
-        t1.join();
-        t2.join();
-
-        System.out.println(type + " final contents: " + map);
     }
 }
