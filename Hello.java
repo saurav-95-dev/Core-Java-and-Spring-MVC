@@ -1,37 +1,36 @@
-//Revisit java collection :
-//NOTES :
-//There are 3 things --> collection api , Collection , Collections.
-//collection api is a topic , Collection is ann interface , Collections is a class.
-//Collection doesn't support index value but List does support index value.
-//
+//Collection re-visit :
+//NOTES:
+//Java collection works with objects .
+//Collection and Set don't support working with index but List does.
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 class Hello{
     public static void main(String[] args){
-        //Working with collection interface which is implemented by class - List:
-        Collection<Integer> nums = new ArrayList<Integer>();
-        nums.add(1);
-        nums.add(2);
-        nums.add(3);
-        nums.add(4);
-        //run-time exception vulnerability:
-        //nums.add("5");
-        System.out.println("Printing without loop:");
-        System.out.println(nums);
-        System.out.println("printing with loops but without generics:");
-        for(Object o : nums){
-            System.out.println((Integer)o);
-        }
-        System.out.println("printing via loop by using generics:");
-        for(int i : nums){
+        System.out.println("Working with collection :");
+        System.out.println("printing collection with loop and with generics types:");
+        Collection<Integer> c = new ArrayList<Integer>();
+        c.add(1);
+        c.add(2);
+        c.add(3);
+        System.out.println(c);
+        System.out.println("printing with loop:");
+        for(int i : c){
             System.out.println(i);
         }
-
-
-
-
-
+        System.out.println("working with list:");
+        List<Integer> l  = new ArrayList<Integer>();
+        l.add(11);
+        l.add(12);
+        l.add(13);
+        l.add(14);
+        System.out.println(l);
+        for(int i : l){
+            System.out.println(i);
+        }
+        System.out.println("index of 12 in list is : " + l.indexOf(12));
+        System.out.println("getting value at index 2 : " + l.get(2));
     }
 }
