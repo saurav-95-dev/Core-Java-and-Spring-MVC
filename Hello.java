@@ -1,109 +1,55 @@
-//Collection re-visit :
-//NOTES:
-//Java collection works with objects .
-//Collection and Set don't support working with index but List does.
-//List support duplicate elements while Set don't.
-//Set ---> no duplicates and unsorted.
-//Map itself is an interface  and the class which implements it is -> Hashmap.
-//Map is basically --> Set-List implementation combination.
-//In case of map , if we already have existing key , it will replace it .
-
-
 import java.util.*;
 
-class Hello {
-    public static void main(String[] args) {
-        System.out.println("Working with collection :");
-        System.out.println("printing collection with loop and with generics types:");
-        Collection<Integer> c = new ArrayList<Integer>();
-        c.add(1);
-        c.add(2);
-        c.add(3);
-        System.out.println(c);
-        System.out.println("printing with loop:");
-        for (int i : c) {
-            System.out.println(i);
-        }
-        System.out.println("working with list:");
-        List<Integer> l = new ArrayList<Integer>();
-        l.add(11);
-        l.add(12);
-        l.add(13);
-        l.add(14);
-        l.add(11);
-        System.out.println(l);
-        for (int i : l) {
-            System.out.println(i);
-        }
-        System.out.println("index of 12 in list is : " + l.indexOf(12));
-        System.out.println("getting value at index 2 : " + l.get(2));
-        System.out.println("Working with Set:");
-        Set<Integer> s = new HashSet<Integer>();
-        s.add(22);
-        s.add(33);
-        s.add(44);
-        s.add(55);
-        s.add(22);
-        System.out.println(s);
-        System.out.println("Printing set values using Iterable:");
+class Worker extends Thread {
+    Map<Integer, String> map;
+    String name;
 
-        Iterator<Integer> val = s.iterator();
+    Worker(Map<Integer, String> map, String name) {
+        this.map = map;
+        this.name = name;
+    }
 
-        while (val.hasNext()) {
-            System.out.println(val.next());
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            map.put(i, name + "-" + i);
+            System.out.println(name + " added: " + i);
+            try {
+                Thread.sleep(50); // simulate time delay
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println("working with tree-set:");
-        TreeSet<Integer> t = new TreeSet<Integer>();
-        t.add(22);
-        t.add(33);
-        t.add(44);
-        t.add(55);
-        t.add(22);
-        t.add(2);
-        t.add(1);
-        t.add(77);
+    }
+}
 
-        System.out.println(t);
-        for (int i : t) {
-            System.out.println(i);
-        }
-        //Map :
-        System.out.println("Working woth maps:");
-        Map<String, Integer> students = new HashMap<>();
-        students.put("Saurabh", 12);
-        students.put("navin", 13);
-        students.put("putin", 33);
-        System.out.println(students);
-        System.out.println("printing all keyset:");
-        System.out.println(students.keySet());
-        System.out.println("printing map values using loop:");
-        for (String key : students.keySet()) {
-            System.out.println(key + " --> " + students.get(key));
-        }
-        System.out.println("Difference between hashtable and hashmap:");
-        //hashmap :
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("computer", 12);
-        map.put("laptop", 14);
-        map.put("mobile", 33);
-        map.put("mouse", 11);
-        map.put(null, 222);
-        map.put("nothing", null);
-        System.out.println("printing hashmap :");
-        for(String str1 : map.keySet()){
-            System.out.println(str1 + " -> " + map.get(str1));
-        }
-        //hashtable :
-        Hashtable<String , Integer> table = new Hashtable<>();
-        table.put("computer", 12);
-        table.put("laptop", 14);
-        table.put("mobile", 33);
-        table.put("mouse", 11);
-        table.put(null, 222);
-        table.put("nothing", null);
-        for (String str2 : table.keySet()){
-            System.out.println(str2 + " -> " + table.get(str2));
-        }
+public class Hello {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("🔸 Using HashMap (Not synchronized)");
+        Map<Integer, String> hashMap = new HashMap<>();
 
+        Thread t1 = new Worker(hashMap, "Thread-1");
+        Thread t2 = new Worker(hashMap, "Thread-2");
+
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+
+        System.out.println("\nFinal HashMap content (may be inconsistent):");
+        System.out.println(hashMap);
+
+        System.out.println("\n🔹 Using Hashtable (Synchronized)");
+        Map<Integer, String> hashTable = new Hashtable<>();
+
+        Thread t3 = new Worker(hashTable, "Thread-A");
+        Thread t4 = new Worker(hashTable, "Thread-B");
+
+        t3.start();
+        t4.start();
+        t3.join();
+        t4.join();
+
+        System.out.println("\nFinal Hashtable content (thread-safe and consistent):");
+        System.out.println(hashTable);
     }
 }
