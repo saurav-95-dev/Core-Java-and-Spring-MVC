@@ -82,7 +82,7 @@ class Hello {
         }
         System.out.println("Difference between hashtable and hashmap:");
         //hashmap :
-        Map<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
         map.put("computer", 12);
         map.put("laptop", 14);
         map.put("mobile", 33);
@@ -93,5 +93,17 @@ class Hello {
         for(String str1 : map.keySet()){
             System.out.println(str1 + " -> " + map.get(str1));
         }
+        //hashtable :
+        Hashtable<String , Integer> table = new Hashtable<>();
+        table.put("computer", 12);
+        table.put("laptop", 14);
+        table.put("mobile", 33);
+        table.put("mouse", 11);
+        table.put(null, 222);
+        table.put("nothing", null);
+        for (String str2 : table.keySet()){
+            System.out.println(str2 + " -> " + table.get(str2));
+        }
+
     }
 }
