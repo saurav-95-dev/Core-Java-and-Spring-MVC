@@ -1,26 +1,22 @@
-//Inner class and abstraction :
+//Java Collection revisit :
+//NOTES :
+//collection api is a concept , Collection is an interface , and Collections is a class.
+//List support working with the index , whereas Collection and Set don't.
+//List can have duplicate values but Set can't.
+//Generics in collection helps to basically remove the bugs of your code.
 
-abstract class A{
-    public abstract void code();
-    public void manage(){
-        System.out.println("Inside manage method under A class");
-    }
-}
+import java.util.ArrayList;
+import java.util.Collection;
 
-public class Hello{
-    public static void main(String []args){
-        System.out.println("Inside main function");
-        A a = new A()
-        {
-
-            public void manage() {
-                System.out.println("Manage method changed");
-            }
-            public void code() {
-                System.out.println("Code is defined under anonymous inner class");
-            }
-        };
-        a.code();
-        a.manage();
+class Hello{
+    public static void main(String[] args){
+          Collection c = new ArrayList();
+          c.add(1);
+          c.add(2);
+          c.add(3);
+          System.out.println(c);
+          for(int o : c){
+              System.out.println((Integer)o);
+          }
     }
 }
