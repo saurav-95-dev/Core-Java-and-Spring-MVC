@@ -4,6 +4,8 @@
 //List support working with the index , whereas Collection and Set don't.
 //List can have duplicate values but Set can't.
 //Generics in collection helps to basically remove the bugs of your code.
+//Map is a Set-list implementation and it doesn't extend Collection interface.
+
 
 import java.util.*;
 
@@ -56,6 +58,21 @@ class Hello{
         for(int i : t){
             System.out.println(i);
         }
+        //Introduction to map:  Set-List implementation
+        System.out.println("Working with map:");
+        Map<String  , Integer> m = new HashMap<>();
+        m.put("Saurabh" , 77);
+        m.put("Laukik" , 32);
+        m.put("steven" , 41);
+        System.out.println(m);
+        System.out.println();
+        for(String str : m.keySet()){
+            System.out.println(str + " -> " + m.get(str));
+        }
+
+        System.out.println();
+        System.out.println();
+
 
     }
 }
