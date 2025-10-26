@@ -6,11 +6,36 @@
 //Generics in collection helps to basically remove the bugs of your code.
 //Map is a Set-list implementation and it doesn't extend Collection interface.
 
-
+import javax.swing.*;
 import java.util.*;
 
+class Worker extends Thread{
+   Map<Integer , String> map;
+   String name;
+
+   //writing constructor :
+    Worker(Map<Integer , String> map , String name){
+        this.map = map;
+        this.name = name;
+    }
+    //To execute the thread :
+    public void run(){
+        for(int i=1 ; i<=3 ; i++){
+            map.put(i , name + "-" + i);
+        }
+        //after each write , thread rest for 50 mills:
+        try{
+            Thread.sleep(50);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+}
+
 class Hello{
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         System.out.println("Introduction to collection:");
           Collection<Integer> c = new ArrayList<Integer>();
           c.add(1);
@@ -29,10 +54,12 @@ class Hello{
           l.add(14);
           l.add(11);
         System.out.println(l);
+        System.out.println("Getting value at third index : " + l.get(2));
+        System.out.println("Index of 13 : " + l.indexOf(13));
         for(int i : l){
             System.out.println(i);
         }
-        System.out.println("Working woth set:");
+        System.out.println("Working with set:");
         Set<Integer> s = new HashSet<Integer>();
         s.add(22);
         s.add(33);
@@ -46,8 +73,8 @@ class Hello{
         }
         //Using TreeSet for sorting :
         System.out.println();
-        System.out.println("Working with TreeSet:");
-        Set<Integer> t = new TreeSet<>();
+        System.out.println("Working with TreeSet (will print data in sorted manner):");
+        Set<Integer> t = new TreeSet<Integer>();
         t.add(22);
         t.add(33);
         t.add(44);
@@ -66,12 +93,29 @@ class Hello{
         m.put("steven" , 41);
         System.out.println(m);
         System.out.println();
-        for(String str : m.keySet()){
+        for(String str : m.keySet()) {
             System.out.println(str + " -> " + m.get(str));
         }
 
         System.out.println();
-        System.out.println();
+        System.out.println("Difference between Hashmap and hashtable:");
+        //NOTE : consider hashmap and hashtable like a notebook which will be shared by two thread simultaneouly in which at a certain point both thread want to write at same page and at the same time.
+        //In such a case , data can be overwritten and we can loose data.
+        //Working with hashmap(Not thread safe):
+        //core : if both threads writes in the same notebook (map) , things can get messed up.
+        System.out.println("Using Hashmap , not synchronized:");
+        Map<Integer , String> hashmap = new HashMap();
+        Thread t1 = new Worker(hashmap , "Thread-1"); //Worker is a person which has a notebook and a name thread-1
+        Thread t2 = new Worker(hashmap , "Thread-2"); //Worker is a person which has a notebook and a name thread-2
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println("Final hashmap content:");
+        System.out.println(hashmap);
+        for(Integer i : hashmap.keySet()){
+            System.out.println(i + " -> " + hashmap.get(i));
+        }
 
 
     }
