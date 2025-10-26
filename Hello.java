@@ -5,6 +5,9 @@
 //List can have duplicate values but Set can't.
 //Generics in collection helps to basically remove the bugs of your code.
 //Map is a Set-list implementation and it doesn't extend Collection interface.
+//Comparator is an interface having a method called compare to implement customized sorting
+
+import com.sun.security.jgss.GSSUtil;
 
 import javax.swing.*;
 import java.util.*;
@@ -36,6 +39,15 @@ class Worker extends Thread{
 
 class Hello{
     public static void main(String[] args) throws InterruptedException{
+        Comparator<Integer> c1 = new Comparator<Integer>() {
+            public int compare(Integer i , Integer j){
+                if(i%10 > j%10)
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+
         System.out.println("Introduction to collection:");
           Collection<Integer> c = new ArrayList<Integer>();
           c.add(1);
@@ -85,6 +97,13 @@ class Hello{
         for(int i : t){
             System.out.println(i);
         }
+        System.out.println("Printing tree set items using iterator:");
+        Iterator<Integer> values = t.iterator();
+        while(values.hasNext()){
+            System.out.println(values.next());
+        }
+        System.out.println();
+
         //Introduction to map:  Set-List implementation
         System.out.println("Working with map:");
         Map<String  , Integer> m = new HashMap<>();
@@ -133,6 +152,19 @@ class Hello{
         }
         System.out.println();
         System.out.println("Sorting in Collection:");
+        List<Integer> list = new ArrayList<>();
+        list.add(12);
+        list.add(41);
+        list.add(90);
+        list.add(77);
+        list.add(36);
+        System.out.println("Normal sorting using Collections class:");
+        Collections.sort(list);
+        System.out.println(list);
+        System.out.println("Customized sorting based on last digit using comparator:");
+        Collections.sort(list , c1);
+        System.out.println(list);
+
 
     }
 }
