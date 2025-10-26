@@ -12,6 +12,24 @@ import com.sun.security.jgss.GSSUtil;
 import javax.swing.*;
 import java.util.*;
 
+class Student{
+
+    int age;
+    String name;
+    Student(int age , String name){
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+
 class Worker extends Thread{
    Map<Integer , String> map;
    String name;
@@ -51,6 +69,14 @@ class Hello{
         Comparator<String> c2 = new Comparator<String>(){
             public int compare(String str1 , String str2){
                 if(str1.length() > str2.length())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+        Comparator<Student> c3 = new Comparator<Student>(){
+            public int compare(Student s1 , Student s2){
+                if(s1.age > s2.age)
                     return 1;
                 else
                     return -1;
@@ -185,5 +211,16 @@ class Hello{
         for(String s1 : str){
             System.out.println(s1);
         }
+        System.out.println("Customized sorting using list of students as a class");
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(22 , "Saurabh dev"));
+        students.add(new Student(21 , "Saurabh dev i am"));
+        students.add(new Student(32 , "You have to switch company"));
+        students.add(new Student(19 , "hii there"));
+        Collections.sort(students , c3);
+        for(Student stud : students){
+            System.out.println(stud.age + " -> " + stud.name);
+        }
+
     }
 }
