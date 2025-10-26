@@ -131,5 +131,8 @@ class Hello{
         for(Integer  i : hashtable.keySet()){
             System.out.println(i + " -> " + hashtable.get(i));
         }
+        System.out.println();
+        System.out.println("Sorting in Collection:");
+
     }
 }
