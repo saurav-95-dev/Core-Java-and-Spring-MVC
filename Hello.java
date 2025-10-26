@@ -20,18 +20,18 @@ class Worker extends Thread{
     }
     //To execute the thread :
     public void run(){
-        for(int i=1 ; i<=3 ; i++){
-            map.put(i , name + "-" + i);
-        }
-        //after each write , thread rest for 50 mills:
-        try{
-            Thread.sleep(50);
-        }
-        catch(InterruptedException e){
-            e.printStackTrace();
+        for(int i=1 ; i<=3 ; i++) {
+            map.put(i, name + "-" + i);
+            System.out.println(name + " added: " + i);
+
+            //after each write , thread rest for 50 mills:
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 }
 
 class Hello{
@@ -117,6 +117,19 @@ class Hello{
             System.out.println(i + " -> " + hashmap.get(i));
         }
 
-
+        System.out.println();
+        System.out.println("Now using hashtable which is thread safe:");
+        Map<Integer , String> hashtable = new Hashtable<>();
+        Thread t3 = new Worker(hashtable , "Thread-A");
+        Thread t4 = new Worker(hashtable , "Thread-B");
+        t3.start();
+        t4.start();
+        t3.join();
+        t4.join();
+        System.out.println("Final hashtable content -- Thread safe :");
+        System.out.println(hashtable);
+        for(Integer  i : hashtable.keySet()){
+            System.out.println(i + " -> " + hashtable.get(i));
+        }
     }
 }
