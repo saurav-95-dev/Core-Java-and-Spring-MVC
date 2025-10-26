@@ -48,6 +48,15 @@ class Hello{
             }
         };
 
+        Comparator<String> c2 = new Comparator<String>(){
+            public int compare(String str1 , String str2){
+                if(str1.length() > str2.length())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+
         System.out.println("Introduction to collection:");
           Collection<Integer> c = new ArrayList<Integer>();
           c.add(1);
@@ -164,7 +173,17 @@ class Hello{
         System.out.println("Customized sorting based on last digit using comparator:");
         Collections.sort(list , c1);
         System.out.println(list);
-
-
+        System.out.println("Customized sorting based on length of the string using comparator:");
+        List<String> str = new ArrayList<>();
+        str.add("Saurabh dev");
+        str.add("london");
+        str.add("Competitive programming");
+        str.add("weekend");
+        str.add("no");
+        Collections.sort(str , c2);
+        System.out.println(str);
+        for(String s1 : str){
+            System.out.println(s1);
+        }
     }
 }
