@@ -12,7 +12,7 @@ import com.sun.security.jgss.GSSUtil;
 import javax.swing.*;
 import java.util.*;
 
-class Student{
+class Student implements Comparable<Student>{
 
     int age;
     String name;
@@ -27,6 +27,12 @@ class Student{
                 "age=" + age +
                 ", name='" + name + '\'' +
                 '}';
+    }
+    public int compareTo(Student that){
+        if(this.name.length() > that.name.length())
+            return 1;
+        else
+            return -1;
     }
 }
 
@@ -211,13 +217,18 @@ class Hello{
         for(String s1 : str){
             System.out.println(s1);
         }
-        System.out.println("Customized sorting using list of students as a class");
+        System.out.println("Customized sorting using list of students as a class based on age");
         List<Student> students = new ArrayList<>();
         students.add(new Student(22 , "Saurabh dev"));
         students.add(new Student(21 , "Saurabh dev i am"));
         students.add(new Student(32 , "You have to switch company"));
         students.add(new Student(19 , "hii there"));
         Collections.sort(students , c3);
+        for(Student stud : students){
+            System.out.println(stud.age + " -> " + stud.name);
+        }
+        System.out.println("Customized sorting using list of students as a class based on name length:");
+        Collections.sort(students);
         for(Student stud : students){
             System.out.println(stud.age + " -> " + stud.name);
         }
