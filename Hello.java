@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 class Hello{
     public static void main(String[] args){
-        List<Integer> l = Arrays.asList(1,2,3,4 , 5);
+        List<Integer> l = Arrays.asList(8 , 1,2,3,4 , 5);
         //printing using forEach:
         System.out.println("Printing list using forEach:");
         l.forEach(i-> System.out.println(i));
@@ -31,8 +31,9 @@ class Hello{
         System.out.println(sum);
         System.out.println("Methods related to stream:");
         //Methods related to stream:
-        Stream<Integer> result1 = l.stream().filter(val -> val%2==0).map(val->val*val);
+        Stream<Integer> result1 = l.stream().filter(val -> val%2==0).map(val->val*val).sorted();
         result1.forEach(val -> System.out.println(val));
+
 
     }
 }
