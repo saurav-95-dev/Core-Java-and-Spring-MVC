@@ -9,6 +9,9 @@ import java.util.List;
 class Hello{
     public static void main(String[] args){
         List<Integer> l = Arrays.asList(1,2,3,4);
+        //printing using forEach:
+        System.out.println("Printing list using forEach:");
+        l.forEach(i-> System.out.println(i));
         //Performing some operation in list without using stream-api:
         int sum = 0;
         for (int i : l){
@@ -18,6 +21,7 @@ class Hello{
                 sum = sum + i;
             }
         }
+        System.out.println("Operation result:");
         System.out.println(sum);
 
     }
