@@ -29,6 +29,9 @@ class Hello{
         }
         System.out.println("Operation result:");
         System.out.println(sum);
-
+        System.out.println("Methods related to stream:");
+        //Methods related to stream:
+        Stream<Integer> result1 = l.stream().filter(val -> val%2==0);
+        result1.forEach(val -> System.out.println(val));
     }
 }
