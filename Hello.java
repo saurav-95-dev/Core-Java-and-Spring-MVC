@@ -1,22 +1,39 @@
-//Concept of LVTI --> Local variable type inference.
-//we can declare a variable using var keyword but only for a local variable and not instance variable
-//instance variable are for the storing purpose whereas local variable are for the processing purpose.
-//if we declare variable using var , we need to assign a value to it which is compulsory.
+//Concept of Stream-API :
+//NOTES:
+//Stream is an interface supporting methods like map , filter , reduce etc.
+//We can use Stream only once.
+//By using Stream , we are not affecting original variable value or data .
 
-class Student{
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
-}
 class Hello{
     public static void main(String[] args){
-        System.out.println("local variable type inference:");
-        int i = 12;
-        var j = 15;
-        int c;
-        //var in arrays and objects:
-        int arr[] = new int[12];
-        var arr1 = new int[10];
+        List<Integer> l = Arrays.asList(8 , 1,2,3,4 , 5);
+        //printing using forEach:
+        System.out.println("Printing list using forEach:");
+        l.forEach(i-> System.out.println(i));
+        System.out.println("Printing list value using Stream:");
+        Stream<Integer> s1 = l.stream();
+        s1.forEach(i-> System.out.println(i));
+        //Performing some operation in list without using stream-api:
+        int sum = 0;
+        for (int i : l){
+            if(i%2==0)
+            {
+                i = i *2;
+                sum = sum + i;
+            }
+        }
+        System.out.println("Operation result:");
+        System.out.println(sum);
+        System.out.println("Methods related to stream:");
+        //Methods related to stream:
+        Stream<Integer> result1 = l.stream().filter(val -> val%2==0).map(val->val*val).sorted();
+        result1.forEach(val -> System.out.println(val));
 
-        var obj = new Student();
 
     }
 }
