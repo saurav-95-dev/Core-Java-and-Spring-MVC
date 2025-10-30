@@ -1,22 +1,23 @@
-//Concept of LVTI --> Local variable type inference.
-//we can declare a variable using var keyword but only for a local variable and not instance variable
-//instance variable are for the storing purpose whereas local variable are for the processing purpose.
-//if we declare variable using var , we need to assign a value to it which is compulsory.
+//Concept of sealed keyword:
+//Problem statement : Not every class should have the power to access class the parent class , by using sealed keyword , we can restrict it.
 
-class Student{
+//In terms of sealed classes:
+sealed class A permits B,C{
 
 }
+
+final class B extends A{
+
+}
+final class C extends A{
+
+}
+class D{
+
+}
+
 class Hello{
     public static void main(String[] args){
-        System.out.println("local variable type inference:");
-        int i = 12;
-        var j = 15;
-        int c;
-        //var in arrays and objects:
-        int arr[] = new int[12];
-        var arr1 = new int[10];
-
-        var obj = new Student();
 
     }
 }
