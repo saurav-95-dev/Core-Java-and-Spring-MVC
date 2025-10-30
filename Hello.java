@@ -3,18 +3,29 @@
 
 //In terms of sealed classes:
 //Give class D permission to inherit B
+//note: you can make the subclasses non-sealed for it to get extended by some other classes.
 sealed class A permits B,C{
 
 }
 
-sealed class B extends A permits D{
+non-sealed class B extends A{
 
 }
-final class C extends A{
+non-sealed class C extends A{
 
 }
 
-final class D extends B{
+class D extends B{
+
+}
+
+//in terms of interface :
+//In interface , we don't have option of final , so subclasses can be either sealed or nonsealed
+sealed interface X permits Y{
+
+}
+
+non-sealed interface Y extends X{
 
 }
 
