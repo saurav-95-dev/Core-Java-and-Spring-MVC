@@ -2,17 +2,19 @@
 //Problem statement : Not every class should have the power to access class the parent class , by using sealed keyword , we can restrict it.
 
 //In terms of sealed classes:
+//Give class D permission to inherit B
 sealed class A permits B,C{
 
 }
 
-final class B extends A{
+sealed class B extends A permits D{
 
 }
 final class C extends A{
 
 }
-class D extends A{
+
+final class D extends B{
 
 }
 
