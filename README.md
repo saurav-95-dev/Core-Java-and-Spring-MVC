@@ -10,21 +10,23 @@
 ## My Linkedin : https://www.linkedin.com/in/saurabh-dev-9120aa236/
 ## Follow me on my Instagram : https://www.instagram.com/sauravdev20002019/profilecard/?igsh=cnJsaGlqMnZjMm5h 
 
-# TABLE OF CONTENTS -- SEQUENCE-WISE
+# TABLE OF CONTENTS -- SEQUENCE-WISE :
 
-INTRODUCTION TO JUNIT : 
+-> JAVA NEW FEATURES : LVTI , Sealed classes , Record classes.
 
-INTRODUCTION TO DSA IN JAVA : 
+-> INTRODUCTION TO JUNIT : 
 
-INTRODUCTION TO GIT : 
+-> INTRODUCTION TO DSA IN JAVA : 
 
-JDBC : 
+-> NTRODUCTION TO GIT : 
 
-SERVLET AND JSP : 
+-> JDBC : 
 
-HIBERNATE : 
+-> SERVLET AND JSP : 
 
-REST API WEB SERVICES : 
+-> HIBERNATE : 
+
+-> REST API WEB SERVICES : 
 
 
 
