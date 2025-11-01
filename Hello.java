@@ -2,30 +2,25 @@
 //NOTES:
 //Record class is meant to only hold data and for data carrying purpose , mutation is not allowed here.
 
-//General procedure :
-class Developers{
+//using record classes :
+//constructor is already implemented inside the record class as well as toString method.
+//we don't have default constructor inside the record class.
+//all the variable that we receive inside record class are final by default.
 
-    private final String name;
-    private final int id;
 
-    //constructor to assign the values:
-    Developers(String name , int id){
-        this.name = name;
-        this.id = id;
-    }
-
-    //getters for both the variables:
-    String getName(){
-        return name;
-    }
-    int getId(){
-        return id;
-    }
+record Developers(String name , int id){
+      //implicit constructor that we get inside record class:
+      public Developers(String name , int id){
+          this.id = id;
+          this.name = name;
+      }
 }
 
 class Hello{
     public static void main(String[] args){
         Developers d1 = new Developers("saurabh" , 1);
+        Developers d2 = new Developers("saurabh" , 1);
+        System.out.println(d1.equals(d2));
         System.out.println(d1);
     }
 }
