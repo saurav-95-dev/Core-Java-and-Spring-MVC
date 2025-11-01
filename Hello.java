@@ -6,15 +6,16 @@
 //constructor is already implemented inside the record class as well as toString method.
 //we don't have default constructor inside the record class.
 //all the variable that we receive inside record class are final by default.
+//if u you want to create static variable do that inside args receiving the params of record class not inside the record class.
 
 
 record Developers(String name , int id){
-      //implicit canonical constructor that we get inside record class:
-      public Developers(String name , int id){
+      //implicit compact canonical constructor that we get inside record class:
+      public Developers{
           if(id == 0)
               throw new IllegalArgumentException("this is not allowed");
-          this.id = id;
-          this.name = name;
+//          this.id = id;
+//          this.name = name;
       }
 }
 
@@ -24,5 +25,7 @@ class Hello{
         Developers d2 = new Developers("saurabh" , 1);
         System.out.println(d1.equals(d2));
         System.out.println(d1);
+        System.out.println(d2.name());
+        System.out.println(d2.id());
     }
 }
