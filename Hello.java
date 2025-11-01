@@ -9,7 +9,7 @@
 
 
 record Developers(String name , int id){
-      //implicit constructor that we get inside record class:
+      //implicit canonical constructor that we get inside record class:
       public Developers(String name , int id){
           if(id == 0)
               throw new IllegalArgumentException("this is not allowed");
