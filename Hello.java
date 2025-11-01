@@ -1,36 +1,31 @@
-//Concept of sealed keyword:
-//Problem statement : Not every class should have the power to access class the parent class , by using sealed keyword , we can restrict it.
+//CONCEPT OF RECORD CLASSES :
+//NOTES:
+//Record class is meant to only hold data and for data carrying purpose , mutation is not allowed here.
 
-//In terms of sealed classes:
-//Give class D permission to inherit B
-//note: you can make the subclasses non-sealed for it to get extended by some other classes.
-sealed class A permits B,C{
+//General procedure :
+class Developers{
 
-}
+    private final String name;
+    private final int id;
 
-non-sealed class B extends A{
+    //constructor to assign the values:
+    Developers(String name , int id){
+        this.name = name;
+        this.id = id;
+    }
 
-}
-non-sealed class C extends A{
-
-}
-
-class D extends B{
-
-}
-
-//in terms of interface :
-//In interface , we don't have option of final , so subclasses can be either sealed or nonsealed
-sealed interface X permits Y{
-
-}
-
-non-sealed interface Y extends X{
-
+    //getters for both the variables:
+    String getName(){
+        return name;
+    }
+    int getId(){
+        return id;
+    }
 }
 
 class Hello{
     public static void main(String[] args){
-
+        Developers d1 = new Developers("saurabh" , 1);
+        System.out.println(d1);
     }
 }
