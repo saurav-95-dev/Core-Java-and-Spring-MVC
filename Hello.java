@@ -1,31 +1,4 @@
-//CONCEPT OF RECORD CLASSES :
-//NOTES:
-//Record class is meant to only hold data and for data carrying purpose , mutation is not allowed here.
-
-//using record classes :
-//constructor is already implemented inside the record class as well as toString method.
-//we don't have default constructor inside the record class.
-//all the variable that we receive inside record class are final by default.
-//if u you want to create static variable do that inside args receiving the params of record class not inside the record class.
-
-
-record Developers(String name , int id){
-      //implicit compact canonical constructor that we get inside record class:
-      public Developers{
-          if(id == 0)
-              throw new IllegalArgumentException("this is not allowed");
-//          this.id = id;
-//          this.name = name;
-      }
-}
-
-class Hello{
-    public static void main(String[] args){
-        Developers d1 = new Developers("saurabh" , 1);
-        Developers d2 = new Developers("saurabh" , 1);
-        System.out.println(d1.equals(d2));
-        System.out.println(d1);
-        System.out.println(d2.name());
-        System.out.println(d2.id());
-    }
-}
+//JUNIT5 :
+//-->Create a maven project-- will give environment to setup the JUNIT5 testing
+//Dependencies for testing are declared within pom.xml file.
+//
