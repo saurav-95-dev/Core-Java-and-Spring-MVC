@@ -1,44 +1,39 @@
-//Types of interface :
-//Normal interface , functional interface (SAM), Marker .
-//Normal interface are the one with 2 or more methods .
-//Functional interface are the one with only one method declaration.
-//Marker interfaces are actually blank interface with no method.
-//**We can use lambda expression only with functional interface.
+//Concept of Stream-API :
+//NOTES:
+//Stream is an interface supporting methods like map , filter , reduce etc.
+//We can use Stream only once.
+//By using Stream , we are not affecting original variable value or data .
 
-@FunctionalInterface //Annotations used here
-interface A{
-    void code(int i);
-}
-
-interface B{
-    int manage(int a , int b);
-}
-
-interface C{
-    public String testing(String name);
-}
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 class Hello{
+    public static void main(String[] args){
+        List<Integer> l = Arrays.asList(8 , 1,2,3,4 , 5);
+        //printing using forEach:
+        System.out.println("Printing list using forEach:");
+        l.forEach(i-> System.out.println(i));
+        System.out.println("Printing list value using Stream:");
+        Stream<Integer> s1 = l.stream();
+        s1.forEach(i-> System.out.println(i));
+        //Performing some operation in list without using stream-api:
+        int sum = 0;
+        for (int i : l){
+            if(i%2==0)
+            {
+                i = i *2;
+                sum = sum + i;
+            }
+        }
+        System.out.println("Operation result:");
+        System.out.println(sum);
+        System.out.println("Methods related to stream:");
+        //Methods related to stream:
+        Stream<Integer> result1 = l.stream().filter(val -> val%2==0).map(val->val*val).sorted();
+        result1.forEach(val -> System.out.println(val));
 
-    public static void main(String [] args){
-        A a = (int i)->{
-            System.out.println("code implemented in lamda expression-" + i);
-        };
 
-        a.code(123);
-
-        B b = (int x , int y)->{
-            return x+y;
-        };
-        int result  = b.manage(12,4);
-        System.out.println(result);
-
-        C c = (String name) ->{
-            return name;
-        };
-
-        String str = c.testing("Sapient");
-        System.out.println(str);
     }
-
 }
