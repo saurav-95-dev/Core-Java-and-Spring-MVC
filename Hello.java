@@ -1,45 +1,46 @@
+//Throw/throws keyword:
+//throw keyword is used to throw the exception for the catch block to catch it .
+//If we are doing a valid arithmetic for example , catch block won't get executed .
+//Here we want to catch block to be executed for even a valid arithmetic operation , for that purpose we can use throw.
+//**throwing self created custom exception.
 
-//Types of interface :
-//Normal interface , functional interface (SAM), Marker .
-//Normal interface are the one with 2 or more methods .
-//Functional interface are the one with only one method declaration.
-//Marker interfaces are actually blank interface with no method.
-//**We can use lambda expression only with functional interface.
-
-@FunctionalInterface //Annotations used here
-interface A{
-    void code(int i);
-}
-
-interface B{
-    int manage(int a , int b);
-}
-
-interface C{
-    public String testing(String name);
+class SaurabhException extends Exception{
+    public SaurabhException(String s){
+        super(s);
+    }
 }
 
 class Hello{
 
     public static void main(String [] args){
-        A a = (int i)->{
-            System.out.println("code implemented in lamda expression-" + i);
-        };
 
-        a.code(123);
+        int i = 12;
+        int j = 6;
+        int result = 0;
 
-        B b = (int x , int y)->{
-            return x+y;
-        };
-        int result  = b.manage(12,4);
+        try{
+            result = i/j;
+            if(result == 0){
+                //let's suppose here we want to throw a custom exception-of our own.
+                throw new ArithmeticException("Additional message of Arithmetic exception when result is 0..");
+            }
+
+            if(result == 2){
+                throw new SaurabhException("This additional message from saurabh's custom exception where the resultant is 2");
+            }
+
+        }
+        catch (SaurabhException e){
+            System.out.println("This is the message from saurabh's custom exception where resultant is 2 : " + e);
+        }
+        catch(ArithmeticException e){
+            System.out.println("Something went wrong because the result is 0 or you have 0 as a denominator..!" + e);
+        }
+
+        System.out.println("Inside main function...");
+        System.out.println();
         System.out.println(result);
-
-        C c = (String name) ->{
-            return name;
-        };
-
-        String str = c.testing("Sapient");
-        System.out.println(str);
+        System.out.println();
+        System.out.println("Last statement inside main function..");
     }
-
 }
