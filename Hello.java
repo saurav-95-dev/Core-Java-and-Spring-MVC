@@ -11,7 +11,7 @@ class Hello {
                     System.out.println(Thread.currentThread().getName() + " processed " + n);
                 });
 
-        System.out.println("\nParallel Stream:");
+
         nums.parallelStream()
                 .forEach(n -> {
                     System.out.println(Thread.currentThread().getName() + " processed " + n);
