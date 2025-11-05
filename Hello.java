@@ -37,10 +37,6 @@ class Hello{
             System.out.println("Something went wrong because the result is 0 or you have 0 as a denominator..!" + e);
         }
 
-        System.out.println("Inside main function...");
-        System.out.println();
-        System.out.println(result);
-        System.out.println();
-        System.out.println("Last statement inside main function..");
+
     }
 }
