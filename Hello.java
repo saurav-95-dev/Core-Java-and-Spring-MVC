@@ -1,39 +1,45 @@
-enum Laptop{
-    macbook(12334) , hp(123) , lenovo , acer(4546); //Named objects
 
-    private int price;
+//Types of interface :
+//Normal interface , functional interface (SAM), Marker .
+//Normal interface are the one with 2 or more methods .
+//Functional interface are the one with only one method declaration.
+//Marker interfaces are actually blank interface with no method.
+//**We can use lambda expression only with functional interface.
 
-    private Laptop(){
-        System.out.println("default constructor called");
-        price = 1;
-    }
-    private Laptop(int price){
-        System.out.println("Parameterized constructor called for :" + this.name());
-        this.price = price;
-    }
+@FunctionalInterface //Annotations used here
+interface A{
+    void code(int i);
+}
 
-    //getters and setters:
-    public void setPrice(int p){
-        this.price = p;
-    }
-    public int getPrice(){
-        return price;
-    }
+interface B{
+    int manage(int a , int b);
+}
 
+interface C{
+    public String testing(String name);
 }
 
 class Hello{
-    public static void main(String[] args){
 
-        Laptop l = Laptop.macbook;
-        System.out.println("Price of " + l + " is: " +l.getPrice());
-        System.out.println();
-        //Printing all laptop :
-        System.out.println("Printing all laptops:");
-        Laptop[] arr = Laptop.values();
-        for(Laptop i : arr){
-            System.out.println(i + "->" + i.ordinal() + " price -->" + i.getPrice() );
-        }
+    public static void main(String [] args){
+        A a = (int i)->{
+            System.out.println("code implemented in lamda expression-" + i);
+        };
 
+        a.code(123);
+
+        B b = (int x , int y)->{
+            return x+y;
+        };
+        int result  = b.manage(12,4);
+        System.out.println(result);
+
+        C c = (String name) ->{
+            return name;
+        };
+
+        String str = c.testing("Sapient");
+        System.out.println(str);
     }
+
 }
