@@ -14,7 +14,7 @@
 
 -> JAVA NEW FEATURES : LVTI , Sealed classes , Record classes.
 
--> INTRODUCTION TO JUNIT : 
+-> INTRODUCTION TO JUNIT : Architecture of JUNIT-5 , 
 
 -> INTRODUCTION TO DSA IN JAVA : 
 
