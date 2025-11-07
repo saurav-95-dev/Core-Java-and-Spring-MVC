@@ -1,36 +1,52 @@
 public class Hello {
 
-    public static void main(String[] args) {
+    static void beforeAll() {
+        System.out.println(" Setting up resources (runs once before all tests)");
+    }
 
-        // Create the object to test
+    static void afterAll() {
+        System.out.println(" Cleaning up resources (runs once after all tests)");
+    }
+
+    static void beforeEach() {
+        System.out.println(" Preparing before each test...");
+    }
+
+    static void afterEach() {
+        System.out.println(" Cleaning after each test...");
+    }
+
+    public static void main(String[] args) {
+        beforeAll();
+
         Calculator calc = new Calculator();
 
-        // === TEST 1: add() ===
-        int expectedSum = 8;
-        int actualSum = calc.add(5, 3);
-        if (expectedSum == actualSum) {
-            System.out.println("✅ Test 1 Passed: add(5,3) returned " + actualSum);
-        } else {
-            System.out.println("❌ Test 1 Failed: expected " + expectedSum + " but got " + actualSum);
-        }
+        // Test 1
+        beforeEach();
+        if (calc.add(2, 3) == 5)
+            System.out.println("✅ add() test passed");
+        else
+            System.out.println(" add() test failed");
+        afterEach();
 
-        // === TEST 2: divide() ===
-        int expectedDiv = 2;
-        int actualDiv = calc.divide(6, 3);
-        if (expectedDiv == actualDiv) {
-            System.out.println("✅ Test 2 Passed: divide(6,3) returned " + actualDiv);
-        } else {
-            System.out.println("❌ Test 2 Failed: expected " + expectedDiv + " but got " + actualDiv);
-        }
+        // Test 2
+        beforeEach();
+        if (calc.divide(8, 4) == 2)
+            System.out.println("✅ divide() test passed");
+        else
+            System.out.println(" divide() test failed");
+        afterEach();
 
-        // === TEST 3: divide by zero (should throw an exception) ===
+        // Test 3
+        beforeEach();
         try {
-            calc.divide(6, 0);
-            System.out.println("Test 3 Failed: expected ArithmeticException");
+            calc.divide(5, 0);
+            System.out.println(" divide by zero test failed");
         } catch (ArithmeticException e) {
-            System.out.println("Test 3 Passed: caught ArithmeticException");
+            System.out.println("divide by zero test passed");
         }
+        afterEach();
 
-        System.out.println("All manual tests executed successfully!");
+        afterAll();
     }
 }
