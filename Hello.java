@@ -1,35 +1,32 @@
-class MathUtils {
-    int square(int x) {
-        return x * x;
+class StringUtils {
+    String reverse(String str) {
+        return new StringBuilder(str).reverse().toString();
     }
 
-    int sum(int... nums) {
-        int sum = 0;
-        for (int n : nums) sum += n;
-        return sum;
+    boolean isPalindrome(String str) {
+        return str.equalsIgnoreCase(reverse(str));
     }
 }
 
 public class Hello {
     public static void main(String[] args) {
-        MathUtils math = new MathUtils();
+        StringUtils s = new StringUtils();
 
-        System.out.println("=== 🧪 TESTING MATH FUNCTIONS ===");
+        System.out.println("\n===  TESTING STRING FUNCTIONS ===");
 
-        // Test 1 — square()
-        int expected = 25;
-        int actual = math.square(5);
-        if (expected == actual)
-            System.out.println("square(5) passed");
+        // Test 1 — reverse
+        String expected = "avaJ";
+        String actual = s.reverse("Java");
+        if (expected.equals(actual))
+            System.out.println(" reverse() test passed");
         else
-            System.out.println("square(5) failed: expected " + expected + " got " + actual);
+            System.out.println(" reverse() test failed: expected " + expected + " got " + actual);
 
-        // Test 2 — sum()
-        expected = 15;
-        actual = math.sum(3, 5, 7);
-        if (expected == actual)
-            System.out.println("sum(3,5,7) passed");
+        // Test 2 — palindrome
+        boolean isPal = s.isPalindrome("Madam");
+        if (isPal)
+            System.out.println("isPalindrome('Madam') passed");
         else
-            System.out.println("sum(3,5,7) failed: expected " + expected + " got " + actual);
+            System.out.println(" isPalindrome('Madam') failed");
     }
 }
