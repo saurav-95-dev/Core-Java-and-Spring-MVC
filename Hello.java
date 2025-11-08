@@ -1,32 +1,25 @@
-class StringUtils {
-    String reverse(String str) {
-        return new StringBuilder(str).reverse().toString();
-    }
+import java.util.*;
 
-    boolean isPalindrome(String str) {
-        return str.equalsIgnoreCase(reverse(str));
+class ArrayUtils {
+    int[] sortArray(int[] arr) {
+        Arrays.sort(arr);
+        return arr;
     }
 }
 
 public class Hello {
     public static void main(String[] args) {
-        StringUtils s = new StringUtils();
+        ArrayUtils utils = new ArrayUtils();
 
-        System.out.println("\n===  TESTING STRING FUNCTIONS ===");
+        System.out.println("\nTESTING ARRAYS ===");
 
-        // Test 1 — reverse
-        String expected = "avaJ";
-        String actual = s.reverse("Java");
-        if (expected.equals(actual))
-            System.out.println(" reverse() test passed");
+        int[] input = {3, 1, 2};
+        int[] expected = {1, 2, 3};
+        int[] actual = utils.sortArray(input);
+
+        if (Arrays.equals(expected, actual))
+            System.out.println("sortArray() test passed");
         else
-            System.out.println(" reverse() test failed: expected " + expected + " got " + actual);
-
-        // Test 2 — palindrome
-        boolean isPal = s.isPalindrome("Madam");
-        if (isPal)
-            System.out.println("isPalindrome('Madam') passed");
-        else
-            System.out.println(" isPalindrome('Madam') failed");
+            System.out.println("sortArray() test failed");
     }
 }
