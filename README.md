@@ -12,6 +12,10 @@
 
 # TABLE OF CONTENTS -- SEQUENCE-WISE :
 
+--> PHASE -1 :
+
+-> ALL JAVA FUNDAMENTALS
+
 -> JAVA NEW FEATURES : LVTI , Sealed classes , Record classes.
 
 -> INTRODUCTION TO JUNIT : Architecture of JUNIT-5 , Structure of maven project and required dependencies for JUNIT-5
