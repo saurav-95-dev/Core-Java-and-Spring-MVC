@@ -18,7 +18,7 @@
 
 -> JAVA NEW FEATURES : LVTI , Sealed classes , Record classes.
 
--> INTRODUCTION TO JUNIT : Architecture of JUNIT-5 , Structure of maven project and required dependencies for JUNIT-5
+-> INTRODUCTION TO JUNIT-5 :
 
 -> INTRODUCTION TO DSA IN JAVA : 
 
