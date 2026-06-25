@@ -13,7 +13,7 @@ class JDBC {
         Connection con =  DriverManager.getConnection(url, username, password);
         //Ste-3 : Create Statement upon which query will be executed:
         Statement st = con.createStatement();
-        String query = "insert into Student values(12 , 'Anmol' , 1 , 'Ranchi')";
+        String query = "Update Student set sage = '21' where id = '11'";
         int rows = st.executeUpdate(query);
         if(rows == 0){
             System.out.println("Operation failed");
