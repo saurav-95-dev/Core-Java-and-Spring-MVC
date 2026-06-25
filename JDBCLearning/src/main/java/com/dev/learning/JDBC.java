@@ -13,13 +13,30 @@ class JDBC {
         Connection con =  DriverManager.getConnection(url, username, password);
         //Ste-3 : Create Statement upon which query will be executed:
         Statement st = con.createStatement();
-        String query = "Delete from Student where id = '12'";
-        int rows = st.executeUpdate(query);
-        if (rows > 0) {
-            System.out.println("Student deleted successfully");
+        String query = "insert into Student values(13 , 'Subhash' , 43 , 'lucknow')";
+        boolean status = st.execute(query);
+        ResultSet rs = st.getResultSet();
+        if(status){
+
+            while(rs.next()){
+                System.out.println(rs.getInt(1)+ " ");
+                System.out.println(rs.getString(2)+" ");
+                System.out.println(rs.getInt(3)+" ");
+                System.out.println(rs.getString(4)+" ");
+            }
         }
-        else {
-            System.out.println("Student not deleted successfully");
+        else{
+            int rows = st.getUpdateCount();
+            if(rows>0){
+                System.out.println(rows+" rows updated");
+
+            }
+            else{
+                System.out.println("Operation failed");
+            }
+        }
+        if(rs != null){
+            rs.close();
         }
         st.close();
         con.close();
