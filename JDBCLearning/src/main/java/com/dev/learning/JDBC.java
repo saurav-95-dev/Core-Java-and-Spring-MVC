@@ -13,12 +13,14 @@ class JDBC {
         Connection con =  DriverManager.getConnection(url, username, password);
         //Ste-3 : Create Statement upon which query will be executed:
         Statement st = con.createStatement();
-        String query = "select * from Student";
-        ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
-            System.out.println(rs.getInt(1) + " " + rs.getString(2) + " "  + rs.getInt(3) + " " + rs.getString(4));
+        String query = "Delete from Student where id = '12'";
+        int rows = st.executeUpdate(query);
+        if (rows > 0) {
+            System.out.println("Student deleted successfully");
         }
-        rs.close();
+        else {
+            System.out.println("Student not deleted successfully");
+        }
         st.close();
         con.close();
 
