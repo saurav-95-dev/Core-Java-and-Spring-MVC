@@ -1,85 +1,57 @@
-package com.dev.learning;
+package  com.dev.learning;
 
-import java.sql.*;
+import com.mysql.cj.protocol.Resultset;
 
-public class JDBC {
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
+class JDBC{
     public static void main(String[] args) {
-
-        System.out.println("Handling Exception in JDBC:");
-
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
+        //Step-1-Load and register the driver.
 
+        //Step-2-Create Connection.
         try {
-            // Step 1: Load and Register the Driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Step 2: Establish the Connection
-            String url = "jdbc:mysql://localhost:3306/jdbclearning";
-            String username = "root";
-            String password = "xyz";
-
-            con = DriverManager.getConnection(url, username, password);
-
-            // Step 3: Create Statement
+            con = JDBCUtil.getConnection();
             st = con.createStatement();
+            String query = "insert into Student values(14 , 'Mona' , 321 , 'Gaziabad')";
+            boolean status = st.execute(query);
+            if (status) {
+                //retrieval operation:
+                rs = st.getResultSet();
+                while (rs.next()) {
+                    System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getString(4));
+                }
+            }
+            else{
+                //data manipulation operation:
+                int rowsAffected = st.getUpdateCount();
+                if(rowsAffected>0){
+                    System.out.println("Operation Successful , ");
+                    System.out.println("rows affected = "+rowsAffected);
+                }
+                else{
+                    System.out.println("Operation Failed ");
+                }
 
-            // Step 4: Execute Query
-            String query = "SELECT * FROM Student";
-            rs = st.executeQuery(query);
-
-            // Step 5: Process the ResultSet
-            while (rs.next()) {
-                System.out.println(
-                        rs.getInt(1) + " " +
-                                rs.getString(2) + " " +
-                                rs.getInt(3) + " " +
-                                rs.getString(4)
-                );
             }
 
-        }
-        catch (ClassNotFoundException e) {
-            System.out.println("MySQL JDBC Driver not found.");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        catch (SQLException e) {
-            System.out.println("Database Error: " + e.getMessage());
+        catch (Exception e) {
             e.printStackTrace();
         }
         finally {
-
-            // Close ResultSet
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    System.out.println("Error while closing ResultSet.");
-                    e.printStackTrace();
-                }
-            }
-
-            // Close Statement
-            if (st != null) {
-                try {
-                    st.close();
-                } catch (SQLException e) {
-                    System.out.println("Error while closing Statement.");
-                    e.printStackTrace();
-                }
-            }
-
-            // Close Connection
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.out.println("Error while closing Connection.");
-                    e.printStackTrace();
-                }
-            }
+            JDBCUtil.closeConnection(con , st , rs);
         }
+
+
+
+
     }
 }
