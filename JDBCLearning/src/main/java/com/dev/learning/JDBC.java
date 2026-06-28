@@ -2,46 +2,84 @@ package com.dev.learning;
 
 import java.sql.*;
 
-import static java.lang.Class.forName;
+public class JDBC {
 
-class JDBC{
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
         System.out.println("Handling Exception in JDBC:");
+
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
-        try{
-            //Step:1 -- Load and register the driver:
+
+        try {
+            // Step 1: Load and Register the Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-            //Step:2 -- Create Connection:
+
+            // Step 2: Establish the Connection
             String url = "jdbc:mysql://localhost:3306/jdbclearning";
             String username = "root";
-            String password = "Saurabh@123";
+            String password = "xyz";
+
             con = DriverManager.getConnection(url, username, password);
+
+            // Step 3: Create Statement
             st = con.createStatement();
-            String query = "select * from Student";
-            //this is select operation:
+
+            // Step 4: Execute Query
+            String query = "SELECT * FROM Student";
             rs = st.executeQuery(query);
-            while(rs.next()){
-                System.out.println(rs.getInt(1) + " " +  rs.getString(2) + " " +   rs.getInt(3) + " " + rs.getString(4));
+
+            // Step 5: Process the ResultSet
+            while (rs.next()) {
+                System.out.println(
+                        rs.getInt(1) + " " +
+                                rs.getString(2) + " " +
+                                rs.getInt(3) + " " +
+                                rs.getString(4)
+                );
             }
 
         }
-        catch(Exception e){
-            System.out.println(e);
+        catch (ClassNotFoundException e) {
+            System.out.println("MySQL JDBC Driver not found.");
+            e.printStackTrace();
+        }
+        catch (SQLException e) {
+            System.out.println("Database Error: " + e.getMessage());
+            e.printStackTrace();
         }
         finally {
-            // close the resources:
-            try {
-                con.close();
-                st.close();
-                if(rs != null){
+
+            // Close ResultSet
+            if (rs != null) {
+                try {
                     rs.close();
+                } catch (SQLException e) {
+                    System.out.println("Error while closing ResultSet.");
+                    e.printStackTrace();
                 }
-            } catch (SQLException e) {
-                System.out.println(e);
             }
 
+            // Close Statement
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    System.out.println("Error while closing Statement.");
+                    e.printStackTrace();
+                }
+            }
+
+            // Close Connection
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.out.println("Error while closing Connection.");
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
