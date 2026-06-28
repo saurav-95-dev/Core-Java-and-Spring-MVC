@@ -1,46 +1,39 @@
 package com.dev.learning;
-import java.sql.*;
 
-class JDBC {
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        //Step-1 : Load and register the driver:
-        Class.forName("com.mysql.cj.jdbc.Driver");
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-        //Step-2 :
-        String url = "jdbc:mysql://localhost:3306/jdbclearning";
-        String username = "root";
-        String password = "xyz"; // your real password
-        Connection con =  DriverManager.getConnection(url, username, password);
-        //Ste-3 : Create Statement upon which query will be executed:
-        Statement st = con.createStatement();
-        String query = "insert into Student values(13 , 'Subhash' , 43 , 'lucknow')";
-        boolean status = st.execute(query);
-        ResultSet rs = st.getResultSet();
-        if(status){
+import static java.lang.Class.forName;
 
-            while(rs.next()){
-                System.out.println(rs.getInt(1)+ " ");
-                System.out.println(rs.getString(2)+" ");
-                System.out.println(rs.getInt(3)+" ");
-                System.out.println(rs.getString(4)+" ");
-            }
+class JDBC{
+    public static void main(String[] args){
+        System.out.println("Handling Exception in JDBC:");
+        Connection con = null;
+        Statement stmt = null;
+        try{
+            //Step:1 -- Load and register the driver:
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Step:2 -- Create Connection:
+            String url = "jdbc:mysql://localhost:3306/jdbclearning";
+            String username = "root";
+            String password = "Saurabh@123";
+            con = DriverManager.getConnection(url, username, password);
+
         }
-        else{
-            int rows = st.getUpdateCount();
-            if(rows>0){
-                System.out.println(rows+" rows updated");
-
-            }
-            else{
-                System.out.println("Operation failed");
-            }
+        catch(Exception e){
+            System.out.println(e);
         }
-        if(rs != null){
-            rs.close();
+        finally {
+            // close the resources:
+            try {
+                con.close();
+                stmt.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+
         }
-        st.close();
-        con.close();
-
-
     }
 }
