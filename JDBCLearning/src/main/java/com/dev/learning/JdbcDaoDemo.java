@@ -11,12 +11,14 @@ public class JdbcDaoDemo {
         System.out.println(s1.sname);
         //Adding a new entry:
         Student s2 = new Student();
-        s2.sname = "Anuj";
-        s2.sage = 111;
-        s2.id = 17;
-        s2.scity = "Gorakhpur";
-
+        s2.sname = "Akash";
+        s2.sage = 101;
+        s2.id = 212;
+        s2.scity = "NCR";
         studentDao.addStudent(s2);
+        //Deletion Operation :
+        studentDao.removeStudent(9);
+
 
     }
 }
@@ -82,6 +84,30 @@ class StudentDao{
             System.out.println("Operation Failed");
         }
 
+    }
+
+    //Deletion Operation:
+    public void removeStudent(int id) throws SQLException {
+        String query = "delete from Student where id =?";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String url = "jdbc:mysql://localhost:3306/jdbclearning";
+        String user = "root";
+        String password = "xyz";
+        Connection con = DriverManager.getConnection(url , user, password);
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, id);
+        int rows = ps.executeUpdate();
+
+        if(rows>0){
+            System.out.println("Operation Successful");
+        }
+        else{
+            System.out.println("Operation Failed");
+        }
     }
 }
 
