@@ -6,16 +6,26 @@ import java.sql.*;
 public class JdbcDaoDemo {
     public static void main() throws SQLException {
         StudentDao studentDao = new StudentDao();
+        //Retrieval Operation:
         Student s1 = studentDao.getStudent(21);
         System.out.println(s1.sname);
+        //Adding a new entry:
+        Student s2 = new Student();
+        s2.sname = "Anuj";
+        s2.sage = 111;
+        s2.id = 17;
+        s2.scity = "Gorakhpur";
+
+        studentDao.addStudent(s2);
 
     }
 }
 
 class StudentDao{
+    //method for retrieving an entry:
     public Student getStudent(int age) throws SQLException {
         Student s = new Student();
-        s.age = age; //Assigning values
+        s.sage = age; //Assigning values
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -46,11 +56,40 @@ class StudentDao{
         }
         return s;
     }
+
+    //Method to add new entry:
+    public void addStudent(Student s) throws SQLException {
+        String query = "insert into Student values( ? ,? , ? , ?)";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String url = "jdbc:mysql://localhost:3306/jdbclearning";
+        String user = "root";
+        String password = "xyz";
+        Connection con = DriverManager.getConnection(url , user, password);
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1,s.id);
+        ps.setString(2 , s.sname);
+        ps.setInt(3 , s.sage);
+        ps.setString(4 , s.scity);
+        int rows = ps.executeUpdate();
+        if(rows>0){
+            System.out.println("Operation Successful");
+        }
+        else{
+            System.out.println("Operation Failed");
+        }
+
+    }
 }
 
 class Student{
-    int age;
+    int sage;
     String sname;
+    int id;
+    String scity;
 }
 
 
