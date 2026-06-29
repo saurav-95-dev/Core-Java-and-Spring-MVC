@@ -1,6 +1,8 @@
 package com.dev.learning;
 
 import java.sql.SQLException;
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 class Student{
     int id;
@@ -14,7 +16,9 @@ public class JdbcDao {
         //Business logic inside main function-
         StudentDao studentDao = new StudentDao();
         Student student = new Student();
-        int id = 11;
+        System.out.println("Enter the id of Student you want to fetch:");
+        Scanner sc = new Scanner(System.in);
+        int id = sc.nextInt();
         try {
             student = studentDao.getStudentById(id);
         } catch (SQLException e) {
