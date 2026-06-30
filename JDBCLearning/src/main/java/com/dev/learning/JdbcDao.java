@@ -20,7 +20,7 @@ public class JdbcDao{
         id = scanner.nextInt();
         //Retrieval operation-
         try {
-            studentdao.getStudentById(11);
+           student = studentdao.getStudentById(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -33,11 +33,13 @@ public class JdbcDao{
         System.out.println("Enter id : ");
         student.id = scanner.nextInt();
         System.out.println("Enter Student's name : ");
-        student.sname = scanner.next();
+        scanner.nextLine();
+        student.sname = scanner.nextLine();
         System.out.println("Enter Student's age : ");
         student.sage = scanner.nextInt();
         System.out.println("Enter Student's city : ");
-        student.scity = scanner.next();
+        scanner.nextLine();
+        student.scity = scanner.nextLine();
         try {
             studentdao.createStudent(student.id , student.sname , student.sage , student.scity);
         } catch (SQLException e) {
