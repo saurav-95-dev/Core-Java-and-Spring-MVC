@@ -45,7 +45,15 @@ public class JdbcDao{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        //Update Operation:
+        System.out.println("Enter id for which you wanna change city");
+        student.id=scanner.nextInt();
 
-
+        try {
+            studentdao.updateStudent(student.id , student.scity);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
     }
 }
