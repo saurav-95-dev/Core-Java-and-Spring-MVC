@@ -26,5 +26,20 @@ public class JdbcDao{
         }
         System.out.println("The name of the Student with id " + id + " is "+ student.sname);
 
+        //Insert/Create Operation:
+        String sname = "";
+        int sage = 0;
+        String scity = "";
+        System.out.println("Enter id : ");
+        student.id = scanner.nextInt();
+        System.out.println("Enter Student's name : ");
+        student.sname = scanner.next();
+        System.out.println("Enter Student's age : ");
+        student.sage = scanner.nextInt();
+        System.out.println("Enter Student's city : ");
+        student.scity = scanner.next();
+        studentdao.createStudent(student.id , student.sname , student.sage , student.scity);
+        System.out.println("New Student has been created !. ...ENJOY !");
+
     }
 }
