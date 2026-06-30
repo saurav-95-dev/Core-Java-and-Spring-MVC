@@ -38,8 +38,12 @@ public class JdbcDao{
         student.sage = scanner.nextInt();
         System.out.println("Enter Student's city : ");
         student.scity = scanner.next();
-        studentdao.createStudent(student.id , student.sname , student.sage , student.scity);
-        System.out.println("New Student has been created !. ...ENJOY !");
+        try {
+            studentdao.createStudent(student.id , student.sname , student.sage , student.scity);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }

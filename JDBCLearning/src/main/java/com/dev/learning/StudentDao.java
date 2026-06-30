@@ -1,4 +1,5 @@
 package com.dev.learning;
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,6 +38,32 @@ public class StudentDao {
     }
 
     //Method for creating a Student:
-
+    public void createStudent(int id , String name , int age , String city) throws SQLException {
+        try{
+            con = JdbcDaoUtil.getConnection();
+            String sql = "insert into Student values (?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, name);
+            ps.setInt(3, age);
+            ps.setString(4, city);
+            int rows = ps.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Student has been created !. ...ENJOY !");
+            }
+            else {
+                System.out.println("Student creation failed !");
+            }
+        }
+        catch(SQLException e){
+            throw e;
+        }
+        catch(Exception e){
+            throw new SQLException(e.getMessage());
+        }
+        finally {
+            JdbcDaoUtil.closeConnection(con, ps , rs);
+        }
+    }
 }
 
