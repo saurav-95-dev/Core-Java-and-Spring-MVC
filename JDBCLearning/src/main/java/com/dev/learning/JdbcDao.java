@@ -1,7 +1,6 @@
 package com.dev.learning;
 
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 class Student{
@@ -10,20 +9,22 @@ class Student{
     int sage;
     String scity;
 }
-
-public class JdbcDao {
-    public static void main(String[] args) {
-        //Business logic inside main function-
-        StudentDao studentDao = new StudentDao();
+public class JdbcDao{
+    public static void main(String args[]){
+        int id;
+        //main function will contain business logic-
         Student student = new Student();
-        System.out.println("Enter the id of Student you want to fetch:");
-        Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
+        StudentDao studentdao = new StudentDao();
+        System.out.println("Enter the id to extract name:");
+        Scanner scanner = new Scanner(System.in);
+        id = scanner.nextInt();
+        //Retrieval operation-
         try {
-            student = studentDao.getStudentById(id);
+            studentdao.getStudentById(11);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Name of the student with id " + id + " is: " +student.sname);
+        System.out.println("The name of the Student with id " + id + " is "+ student.sname);
+
     }
 }

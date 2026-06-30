@@ -2,7 +2,8 @@ package com.dev.learning;
 
 import java.sql.*;
 
-public class JdbcDaoUtil{
+public class JdbcDaoUtil {
+    //this class will contain common JDBC steps:
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -11,12 +12,13 @@ public class JdbcDaoUtil{
         }
     }
     //Method for creating connection:
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException, SQLException {
         String url = "jdbc:mysql://localhost:3306/jdbclearning";
         String user = "root";
         String password = "Saurabh@123";
         return DriverManager.getConnection(url, user, password);
     }
+    //Method for closing the connection:
     public static void closeConnection(Connection con , PreparedStatement ps , ResultSet rs) {
         try {
             if (rs != null) {
@@ -32,4 +34,6 @@ public class JdbcDaoUtil{
             throw new RuntimeException(e);
         }
     }
+
+
 }

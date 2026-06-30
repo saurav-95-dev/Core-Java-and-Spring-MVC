@@ -1,38 +1,39 @@
 package com.dev.learning;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//this class will contain all the jdbc logic-
+//This class will contain all the JDBC logic:
 public class StudentDao {
+    Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    //Retrieval operation
     public Student getStudentById(int id) throws SQLException {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+
         try{
             Student student = new Student();
-            try {
-                con = JdbcDaoUtil.getConnection();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            String query = "select * from student where id = ?";
-            ps =con.prepareStatement(query);
-            ps.setInt(1,id);
+            //fetching data from DB via JDBC:
+            con = JdbcDaoUtil.getConnection();
+            String sql = "select * from Student where id = ?";
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
-            if(rs.next()){
-                student.sname=rs.getString(2);
+            if (rs.next()) {
+                student.sname = rs.getString("sname");
             }
             return student;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
-
+            throw e;
+        }
+        catch(Exception e){
+            throw new SQLException(e.getMessage());
         }
         finally {
-            JdbcDaoUtil.closeConnection(con , ps , rs);
+            JdbcDaoUtil.closeConnection(con, ps , rs);
         }
     }
 }
+
