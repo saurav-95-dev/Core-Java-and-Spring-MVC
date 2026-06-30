@@ -87,5 +87,23 @@ public class StudentDao {
         }
 
     }
+
+    public Student deleteStudent(int id) throws SQLException {
+
+        Student student = getStudentById(id);
+        con = JdbcDaoUtil.getConnection();
+        String sql = "delete from Student where id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        int rows = ps.executeUpdate();
+        if (rows > 0) {
+            System.out.println("Following student has been deleted !" + student.sname);
+
+        }
+        else{
+            System.out.println("Student deletion failed !");
+        }
+        return student;
+    }
 }
 

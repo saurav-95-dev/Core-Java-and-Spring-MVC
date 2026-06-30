@@ -10,7 +10,7 @@ class Student{
     String scity;
 }
 public class JdbcDao{
-    public static void main(String args[]){
+    public static void main(String args[]) throws SQLException {
         int id;
         //main function will contain business logic-
         Student student = new Student();
@@ -54,6 +54,13 @@ public class JdbcDao{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+
+        //Delete Operation :
+        System.out.println("Enter the id you wanna delete:");
+        student.id = scanner.nextInt();
+        student = studentdao.deleteStudent(student.id);
+
+
+
     }
 }
